@@ -1,3 +1,122 @@
+/* Animación para el globo de diálogo */
+.hero-dialog {
+    /* ...otros estilos... */
+    animation: popIn 0.8s cubic-bezier(.5,1.7,.5,1) 0.2s both;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+/* =============================
+   Sección principal debajo del menú
+============================= */
+.hero-section {
+    position: relative;
+    background: #f6efe0;
+    border-radius: 0 0 32px 32px;
+    padding: 48px 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 480px;
+    box-sizing: border-box;
+}
+
+/* Gota triste */
+.hero-gota {
+    position: absolute;
+    left: 40px;
+    bottom: 32px;
+    width: 340px;
+    max-width: 40vw;
+    z-index: 2;
+}
+
+/* Globo de diálogo */
+.hero-dialog {
+    position: absolute;
+    left: 260px;
+    top: 60px;
+    background: #fff;
+    border: 3px solid #053242;
+    border-radius: 32px 32px 32px 0;
+    padding: 18px 32px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #053242;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    max-width: 340px;
+    z-index: 3;
+}
+
+/* Título script y bolsa de sangre */
+.hero-title {
+    margin-top: 32px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-size: 3.2rem;
+    color: #e6474a;
+    font-family: 'Arturo', Arial, sans-serif;
+    font-weight: 400;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.hero-title .script {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 3.2rem;
+    color: #e6474a;
+    font-weight: 400;
+}
+.hero-bolsa {
+    width: 110px;
+    height: auto;
+    margin-left: 12px;
+}
+
+/* Mensaje motivacional */
+.hero-message {
+    margin-top: 18px;
+    font-size: 2.1rem;
+    color: #053242;
+    font-weight: 700;
+    text-align: center;
+}
+.hero-message .hero {
+    color: #e6474a;
+    font-weight: 700;
+}
+
+/* Botón destacado */
+.hero-btn {
+    margin-top: 32px;
+    background: #e6474a;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 32px;
+    padding: 12px 38px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.09);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.hero-btn:hover {
+    background: #c33;
+}
 * {
     box-sizing: border-box
 }

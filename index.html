@@ -7,6 +7,7 @@
     <title>GotaDeVida</title>
     <link rel="stylesheet" href="css/inicio.css">
     <link rel="icon" href="img/gota.png" type="image/png">
+            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -42,6 +43,30 @@
             </nav>
         </div>
     </header>
+    <section class="hero-section">
+        <model-viewer src="models/gota 3D.glb" alt="Gota 3D" class="hero-gota" auto-rotate camera-controls background-color="#f6efe0" style="width:340px;max-width:40vw;height:340px;position:absolute;left:40px;bottom:32px;z-index:2;">
+        </model-viewer>
+        <!-- Diálogo de la gota -->
+        <div class="hero-dialog">
+            <span>¡Tu sangre puede salvar vidas!<br>¿Me ayudas a sonreír?</span>
+        </div>
+
+        <!-- Título con fuente script -->
+        <div class="hero-title">
+            <span class="script">Cada gota</span>
+            <span class="script">cuenta</span>
+            <img src="img/bolsaSangre.png" alt="Bolsa de sangre" class="hero-bolsa">
+        </div>
+
+        <!-- Mensaje motivacional -->
+        <div class="hero-message">
+            <span>¡SALVA UNA VIDA<br>y sé el <span class="hero">héroe</span> que alguien espera hoy!</span>
+        </div>
+
+        <!-- Botón destacado -->
+        <button class="hero-btn">¿Cómo ayudar?</button>
+    </section>
+    <main class="contenido-principal"></main>
 
 
 </body>
