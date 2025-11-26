@@ -1,11 +1,213 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Donante</title>
+    <link rel="stylesheet" href="css/acercade.css">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
 </head>
+
 <body>
-    
+    <!-- HEARDER  -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <img class="brand-logo" src="img/LogoGota.png" alt="Gota de Vida logo">
+            </div>
+            <nav class="main-nav" aria-label="Principal">
+                <ul class="menu-items">
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">INICIO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">CAMPAÑAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">ALERTAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="donante.html">PERFIL</a></li>
+                    <li class="menu-corazon">
+                        <button class="heart-btn" aria-label="Registrar">
+                            <img src="img/corazon.png" alt="Corazón" class="corazon-icon">
+                            <span class="texto-corazon">Registrar</span>
+                        </button>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">SEGUIMIENTO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">EDUCACIÓN</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">CONTACTO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">Acerca De</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- MINI PERFIL / INICIO DE SESIÓN -->
+    <div id="miniPerfil" class="fixed bottom-5 right-5 bg-white rounded-2xl shadow-xl px-4 py-3 border 
+            flex items-center gap-3 cursor-pointer select-none hidden"
+        style="border-color: var(--rojo-rubi); color: var(--burdeos); z-index: 999;">
+
+        <img id="miniAvatar" src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+            class="w-12 h-12 rounded-full border border-[var(--rojo-rubi)]">
+
+        <div class="flex flex-col leading-tight">
+            <span id="miniNombre" class="font-bold text-sm"></span>
+            <span id="miniDescripcion" class="text-[12px] opacity-70"></span>
+        </div>
+    </div>
+
+    <!-- MENU DESPLEGABLE -->
+    <div id="miniMenu" class="hidden fixed bottom-24 right-5 bg-white border rounded-xl shadow-xl w-48 p-3
+            text-[var(--burdeos)] z-50">
+
+        <p id="btnVerPerfil" class="menuItem py-2 px-3 hover:bg-[var(--beige)] rounded-lg cursor-pointer">Mi perfil</p>
+        <p id="cerrarSesion"
+            class="menuItem py-2 px-3 hover:bg-[var(--beige)] rounded-lg cursor-pointer text-red-500 font-bold">Cerrar
+            sesión</p>
+    </div>
+
+    <!-- FORMULARIO DE REGISTRO DONANTE  -->
+    <section class="max-w-4xl mx-auto mt-10 bg-white p-10 rounded-2xl shadow-lg border"
+        style="border-color: var(--burdeos);">
+
+        <h2 class="text-3xl font-bold mb-6 text-center" style="color: var(--burdeos);">
+            Perfil del Donante
+        </h2>
+
+        <!-- FORMULARIO -->
+        <form id="perfilForm" class="space-y-6">
+
+            <!-- Nombre -->
+            <div>
+                <label class="block font-semibold" style="color: var(--azul);">Nombre completo</label>
+                <input type="text" id="nombre" class="w-full p-3 rounded-lg border" placeholder="Ingresa tu nombre"
+                    required>
+            </div>
+
+            <!-- Correo -->
+            <div>
+                <label class="block font-semibold" style="color: var(--azul);">Correo electrónico</label>
+                <input type="email" id="correo" class="w-full p-3 rounded-lg border" placeholder="ejemplo@email.com"
+                    required>
+            </div>
+
+            <!-- Cédula -->
+            <div>
+                <label class="block font-semibold" style="color: var(--azul);">Cédula</label>
+                <input type="text" id="cedula" class="w-full p-3 rounded-lg border" placeholder="001234567" required>
+            </div>
+
+            <!-- Teléfono -->
+            <div>
+                <label class="block font-semibold" style="color: var(--azul);">Teléfono</label>
+                <input type="tel" id="telefono" class="w-full p-3 rounded-lg border" placeholder="8888-8888" required>
+            </div>
+
+            <!-- Grupo sanguíneo -->
+            <div>
+                <label class="block font-semibold" style="color: var(--azul);">Grupo sanguíneo</label>
+                <select id="grupo" class="w-full p-3 rounded-lg border" required>
+                    <option value="">Selecciona una opción</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                </select>
+            </div>
+
+            <!-- Historial -->
+            <div>
+                <label class="block font-semibold" style="color: var(--azul);">Historial de donaciones</label>
+                <!-- <textarea id="historial" rows="4" class="w-full p-3 rounded-lg border"
+                  placeholder="Escribe tu historial de donaciones (opcional)"></textarea> -->
+                <textarea id="historial" rows="4" class="w-full p-3 rounded-lg border" readonly></textarea>
+            </div>
+
+            <!-- Disponibilidad -->
+            <div>
+                <label class="block font-semibold" style="color: var(--azul);">Disponibilidad para donar</label>
+                <select id="disponible" class="w-full p-3 rounded-lg border">
+                    <option value="">Selecciona una opción</option>
+                    <option>Disponible</option>
+                    <option>No disponible</option>
+                    <option>En recuperación</option>
+                </select>
+            </div>
+
+            <button type="submit" class="w-full p-3 mt-4 font-bold rounded-lg text-white"
+                style="background-color: var(--rojo-rubi);">
+                Guardar Perfil
+            </button>
+        </form>
+
+        <!-- Perfil mostrado -->
+        <div id="perfilGuardado" class="mt-10 hidden p-6 bg-[var(--beige)] rounded-xl border border-[var(--azul)]">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--burdeos);">Información Guardada</h3>
+
+            <p><strong>Nombre:</strong> <span id="outNombre"></span></p>
+            <p><strong>Grupo sanguíneo:</strong> <span id="outGrupo"></span></p>
+            <p><strong>Historial:</strong> <span id="outHistorial"></span></p>
+            <p><strong>Disponibilidad:</strong> <span id="outDisponible"></span></p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[var(--azul)] text-[var(--beige)] py-10 mt-14">
+        <div class="max-w-[1300px] mx-auto flex flex-wrap justify-between items-start gap-10">
+            <div>
+                <img src="img/logo.png" class="w-20 mb-2">
+                <p class="font-semibold">Donadores con corazón</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="index.html">Inicio</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="centros.html">Campañas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="alertas.html">Alertas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Educación</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="contacto.html">Contacto</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="acercade.html">Acerca De</a>
+            </div>
+
+            <div class="flex gap-4">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+            </div>
+        </div>
+
+        <p class="text-center mt-6 opacity-80 text-[14px]">
+            © 2025 Una Gota de Vida — Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <!-- MINI LOGIN -->
+    <div id="loginMini" class="fixed bottom-24 right-5 bg-white border rounded-xl shadow-xl p-5 w-64 hidden z-50">
+
+        <h3 class="text-lg font-bold mb-3 text-[var(--burdeos)]">Iniciar sesión</h3>
+
+        <label class="text-sm font-semibold text-[var(--azul)]">Cédula</label>
+        <input type="text" id="loginCedula" class="w-full p-2 border rounded-lg mb-3" placeholder="001234567">
+
+        <button id="btnLoginMini" class="w-full bg-[var(--rojo-rubi)] text-white p-2 rounded-lg font-semibold">
+            Entrar
+        </button>
+
+        <p id="loginError" class="text-red-500 text-sm mt-2 hidden">Cédula no encontrada</p>
+    </div>
+
+    <script src="js/localStorage.js"></script>
 </body>
 </html>

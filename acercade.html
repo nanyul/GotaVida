@@ -29,7 +29,7 @@
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="#">ALERTAS</a></li>
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">PERFIL</a></li>
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="donante.html">PERFIL</a></li>
                     <li class="menu-corazon">
                         <button class="heart-btn" aria-label="Registrar">
                             <img src="img/corazon.png" alt="Corazón" class="corazon-icon">
@@ -42,6 +42,9 @@
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="#">EDUCACIÓN</a></li>
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="#">CONTACTO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">Acerca De</a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -62,14 +65,14 @@
             <div id="dots" class="flex justify-center gap-3 absolute left-1/2 -translate-x-1/2 bottom-3"></div>
         </div>
     </section>
-    
+
 
     <!-- INFORMACIÓN DEL PROYECTO -->
     <div id="info-proyecto"
         class="max-w-[1100px] mx-auto mt-14 p-10 bg-[var(--beige)] border-l-[13px] border-[var(--burdeos)] rounded-2xl shadow-xl font-[Poppins]">
     </div>
 
-    <!-- FOOTER (simple) -->
+    <!-- FOOTER  -->
     <footer class="bg-[var(--azul)] text-[var(--beige)] py-10 mt-14">
         <div class="max-w-[1300px] mx-auto flex flex-wrap justify-between items-start gap-10">
             <div>
@@ -79,10 +82,11 @@
 
             <div class="flex flex-col gap-2">
                 <a class="hover:text-[var(--rojo-rubi)] transition" href="index.html">Inicio</a>
-                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Campañas</a>
-                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Alertas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="centros.html">Campañas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="alertas.html">Alertas</a>
                 <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Educación</a>
-                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Contacto</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="contacto.html">Contacto</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="acercade.html">Acerca De</a>
             </div>
 
             <div class="flex gap-4">
@@ -97,7 +101,46 @@
         </p>
     </footer>
 
-    <!-- SCRIPT: carga JSON y slider con autoslide -->
+
+    <!-- MINI PERFIL / INICIO DE SESIÓN -->
+    <div id="miniPerfil" class="fixed bottom-5 right-5 bg-white rounded-2xl shadow-xl px-4 py-3 border 
+            flex items-center gap-3 cursor-pointer select-none hidden"
+        style="border-color: var(--rojo-rubi); color: var(--burdeos); z-index: 999;">
+
+        <img id="miniAvatar" src="https://cdn-icons-png.flaticon.com/512/847/847969.png"
+            class="w-12 h-12 rounded-full border border-[var(--rojo-rubi)]">
+
+        <div class="flex flex-col leading-tight">
+            <span id="miniNombre" class="font-bold text-sm"></span>
+            <span id="miniDescripcion" class="text-[12px] opacity-70"></span>
+        </div>
+    </div>
+
+    <!-- MENU DESPLEGABLE -->
+    <div id="miniMenu" class="hidden fixed bottom-24 right-5 bg-white border rounded-xl shadow-xl w-48 p-3
+            text-[var(--burdeos)] z-50">
+
+        <p id="btnVerPerfil" class="menuItem py-2 px-3 hover:bg-[var(--beige)] rounded-lg cursor-pointer">Mi perfil</p>
+        <p id="cerrarSesion"
+            class="menuItem py-2 px-3 hover:bg-[var(--beige)] rounded-lg cursor-pointer text-red-500 font-bold">Cerrar
+            sesión</p>
+    </div>
+    <!-- MINI LOGIN -->
+    <div id="loginMini" class="fixed bottom-24 right-5 bg-white border rounded-xl shadow-xl p-5 w-64 hidden z-50">
+
+        <h3 class="text-lg font-bold mb-3 text-[var(--burdeos)]">Iniciar sesión</h3>
+
+        <label class="text-sm font-semibold text-[var(--azul)]">Cédula</label>
+        <input type="text" id="loginCedula" class="w-full p-2 border rounded-lg mb-3" placeholder="001234567">
+
+        <button id="btnLoginMini" class="w-full bg-[var(--rojo-rubi)] text-white p-2 rounded-lg font-semibold">
+            Entrar
+        </button>
+
+        <p id="loginError" class="text-red-500 text-sm mt-2 hidden">Cédula no encontrada</p>
+    </div>
+
     <script src="js/acercade.js"></script>
+    <script src="js/localStorage.js"></script>
 </body>
 </html>

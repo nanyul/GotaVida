@@ -1,0 +1,70 @@
+#miniPerfil {
+    background: linear-gradient(135deg, #ffffff, #ffe7e7);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+#miniPerfil:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.menuItem {
+    transition: 0.2s;
+}
+
+#miniMenu {
+    animation: fadeDown 0.25s ease-out;
+}
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments for mini profile / menus */
+@media (max-width: 640px) {
+    #miniPerfil {
+        right: 0.5rem;
+        bottom: 0.5rem;
+        padding: 0.5rem 0.6rem;
+        width: auto;
+        max-width: 320px;
+        border-radius: 14px;
+    }
+
+    #miniPerfil img {
+        width: 2.6rem;
+        height: 2.6rem;
+    }
+
+    /* Make menu / login panels easier to tap and fit on small screens */
+    #miniMenu, #loginMini {
+        right: 0.5rem;
+        bottom: 4.2rem;
+        width: calc(100% - 1rem);
+        max-width: 360px;
+    }
+
+    .menuItem {
+        padding: 0.6rem 0.75rem;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+    #miniPerfil {
+        padding: 0.4rem 0.5rem;
+    }
+
+    #miniPerfil img {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    /* Ensure popups don't overflow on very small screens */
+    #miniMenu, #loginMini {
+        left: 0.5rem;
+        right: 0.5rem;
+        width: auto;
+        max-width: none;
+    }
+}
