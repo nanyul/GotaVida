@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acerca de</title>
+    <link rel="stylesheet" href="css/acercade.css">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+</head>
+
+<body>
+    <!-- HEARDER  -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <img class="brand-logo" src="img/LogoGota.png" alt="Gota de Vida logo">
+            </div>
+            <nav class="main-nav" aria-label="Principal">
+                <ul class="menu-items">
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">INICIO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">CAMPAÑAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">ALERTAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">PERFIL</a></li>
+                    <li class="menu-corazon">
+                        <button class="heart-btn" aria-label="Registrar">
+                            <img src="img/corazon.png" alt="Corazón" class="corazon-icon">
+                            <span class="texto-corazon">Registrar</span>
+                        </button>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">SEGUIMIENTO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">EDUCACIÓN</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <section class="py-16 flex justify-center">
+        <div id="slider-wrapper" class="w-[90%] max-w-[1300px] h-[500px] overflow-hidden relative bg-transparent">
+            <div id="slider" class="flex w-full transition-transform duration-700 ease-in-out"></div>
+
+            <!-- FLECHAS -->
+            <button id="btnPrev" aria-label="Anterior"
+                class="absolute left-5 top-1/2 -translate-y-1/2 text-[55px] text-[var(--burdeos)] hover:text-[var(--rojo-rubi)] transition">‹</button>
+            <button id="btnNext" aria-label="Siguiente"
+                class="absolute right-5 top-1/2 -translate-y-1/2 text-[55px] text-[var(--burdeos)] hover:text-[var(--rojo-rubi)] transition">›</button>
+
+            <!-- DOTS contenedor -->
+            <div id="dots" class="flex justify-center gap-3 absolute left-1/2 -translate-x-1/2 bottom-3"></div>
+        </div>
+    </section>
+    
+
+    <!-- INFORMACIÓN DEL PROYECTO -->
+    <div id="info-proyecto"
+        class="max-w-[1100px] mx-auto mt-14 p-10 bg-[var(--beige)] border-l-[13px] border-[var(--burdeos)] rounded-2xl shadow-xl font-[Poppins]">
+    </div>
+
+    <!-- FOOTER (simple) -->
+    <footer class="bg-[var(--azul)] text-[var(--beige)] py-10 mt-14">
+        <div class="max-w-[1300px] mx-auto flex flex-wrap justify-between items-start gap-10">
+            <div>
+                <img src="img/logo.png" class="w-20 mb-2">
+                <p class="font-semibold">Donadores con corazón</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="index.html">Inicio</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Campañas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Alertas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Educación</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Contacto</a>
+            </div>
+
+            <div class="flex gap-4">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+            </div>
+        </div>
+
+        <p class="text-center mt-6 opacity-80 text-[14px]">
+            © 2025 Una Gota de Vida — Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <!-- SCRIPT: carga JSON y slider con autoslide -->
+    <script src="js/acercade.js"></script>
+</body>
+</html>
