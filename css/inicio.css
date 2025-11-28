@@ -128,7 +128,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 110px;
+    width: 310px;
     height: 95px;
     z-index: 1;
     pointer-events: none;
@@ -379,7 +379,6 @@ body {
 .hero-section {
     position: relative;
     background: #F7F3DA;
-    border-radius: 0 0 32px 32px;
     padding: 48px 0 40px 0;
     display: flex;
     flex-direction: column;
@@ -448,30 +447,30 @@ body {
     font-family: 'Sulat', Arial, sans-serif;
     color: #69021E;
     font-weight: bold;
-    margin-top: 32px;
+    margin-top: 1px;
     margin-bottom: 16px;
 }
 
 /* Primera línea: "Cada gota" */
 .hero-title .script:first-child {
-    font-size: 2.7rem;
+    font-size: 3.5rem;
     margin-left: 600px;
     margin-bottom: 1px;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 /* Segunda línea + bolsa de sangre en una fila */
 .hero-title .linea2 {
     display: flex;
     align-items: flex-end;
-    gap: 2px;
-    margin-top: -3.5em;
-    margin-left: 65px;
+    gap: 1px;
+    margin-top: -9rem;
+    margin-left: 75px;
 }
 
 /* Palabra "cuenta" */
 .hero-title .linea2 .script {
-    font-size: 2.7rem;
+    font-size: 3.5rem;
     line-height: 1em;
 }
 
@@ -489,7 +488,7 @@ body {
 .hero-message {
     margin-top: 18px;
     margin-left: 500px;
-    font-size: 2.1rem;
+    font-size: 2.5rem;
     color: #053242;
     font-weight: 700;
     text-align: center;
@@ -521,19 +520,19 @@ body {
     background: #69021E;
 }
 
-/* CAROUSEL STYLES */
+
 .carousel-slide {
     background-size: cover;
     background-position: center;
 }
 
-/* Ensure carousel covers full width */
+/* full */
 #carousel {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
 }
 
-/* Responsive carousel height */
+/* Responsive  */
 @media (max-width: 768px) {
     .carousel-slide h2 {
         font-size: 2rem;
@@ -542,6 +541,123 @@ body {
     .carousel-slide button {
         font-size: 0.875rem;
         padding: 0.75rem 1.5rem;
+    }
+}
+
+/* SECCIÓN IMPORTANCIA */
+.importancia-section {
+    background: linear-gradient(135deg, #AA0235, #030206);
+    padding: 80px 20px;
+    min-height: 400px;
+}
+
+.importancia-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.importancia-title {
+    color: var(--beige);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 60px;
+    font-family: 'Arturo', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.importancia-elementos-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+}
+
+.importancia-elemento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.importancia-icono {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: var(--beige);
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.importancia-icono:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.importancia-descripcion {
+    color: var(--beige);
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive para importancia */
+@media (max-width: 1024px) {
+    .importancia-elemento {
+        width: 200px;
+        margin: 20px 0;
+    }
+    
+    .importancia-icono {
+        width: 100px;
+        height: 100px;
+    }
+
+    .importancia-title {
+        font-size: 2.5rem;
+    }
+    
+    .importancia-descripcion {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .importancia-elementos-row {
+        flex-direction: column;
+        gap: 0;
+    }
+    .importancia-elemento {
+        width: 100%;
+        margin: 30px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .importancia-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .importancia-descripcion {
+        font-size: 1rem;
+    }
+    
+    .importancia-section {
+        padding: 60px 20px;
     }
 }
 
