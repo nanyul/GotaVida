@@ -3,19 +3,19 @@
     "requisitos": [
         {
             "icono": "img/quien-puede-donar/QuienDona1.png",
-            "descripcion": "Tener entre 18 y 70 años."
+            "descripcion": "Tener entre 18\n y 70 años."
         },
         {
             "icono": "img/quien-puede-donar/QuienDona2.png",
-            "descripcion": "Pesar más de 50kg."
+            "descripcion": "Pesar más\n de 50kg."
         },
         {
             "icono": "img/quien-puede-donar/QuienDona3.png",
-            "descripcion": "No estar en ayunas."
+            "descripcion": "No estar en\n ayunas."
         },
         {
             "icono": "img/quien-puede-donar/QuienDona4.png",
-            "descripcion": "Mínimo dos meses entre donaciones."
+            "descripcion": "Mínimo dos meses\n entre donaciones."
         }
     ]
 }
