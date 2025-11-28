@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GotaDeVida</title>
     <link rel="stylesheet" href="css/inicio.css">
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="img/gota.png" type="image/png">
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
@@ -52,13 +54,14 @@
     </header>
 
     <section class="hero-section">
-        <model-viewer src="models/gota 3D.glb" alt="Gota 3D" class="hero-gota" auto-rotate camera-controls
-            background-color="#f6efe0"
-            style="width:340px;max-width:40vw;height:340px;position:absolute;left:40px;bottom:32px;z-index:2;">
+        <model-viewer src="models/gota 3D.glb" alt="Gota 3D" class="hero-gota" camera-controls
+            background-color="#f6efe0" camera-orbit="75deg 90deg "
+            style="width:340px;max-width:40vw;height:340px;position:absolute;left:0px;bottom:32px;z-index:2;">
         </model-viewer>
+        <img src="img/coagulos.png" alt="Coágulos" class="hero-coagulos">
         <!-- Diálogo de la gota -->
         <div class="hero-dialog">
-            <span>¡Tu sangre puede salvar vidas!<br>¿Me ayudas a sonreír?</span>
+            <span>¡Tu sangre puede <br> salvar vidas!<br>¿Me ayudas a sonreír?</span>
         </div>
 
         <!-- Título con fuente script -->
@@ -73,15 +76,57 @@
 
         <!-- Mensaje motivacional -->
         <div class="hero-message">
-            <span>¡SALVA UNA VIDA<br>y sé el <span class="hero">héroe</span> que alguien espera hoy!</span>
+            <span>¡SALVA UNA VIDA<br>y sé el <span class="hero">héroe</span> que alguien <br> espera hoy!</span>
         </div>
 
         <!-- Botón destacado -->
         <button class="hero-btn">¿Cómo ayudar?</button>
     </section>
-    <main class="contenido-principal"></main>
 
+    <!-- CAROUSEL FULL WIDTH -->
+    <section class="relative w-full h-96 overflow-hidden">
+        <div id="carousel" class="relative w-full h-full">
+            <!-- Slide 1 -->
+            <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                <img src="img/carrusel/Imagen 1.png" class="w-full h-full object-cover" alt="Slide 1">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-4xl font-bold mb-4">¿Quieres saber si podes donar?</h2>
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
+                            realizar el test
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                <img src="img/carrusel/Imagen 2.png" class="w-full h-full object-cover" alt="Slide 2">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-4xl font-bold mb-4">Tu donación salva vidas</h2>
+                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
+                            Donar ahora
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                <img src="img/carrusel/Imagen 3.png" class="w-full h-full object-cover" alt="Slide 3">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                    <div class="text-center text-white">
+                        <h2 class="text-4xl font-bold mb-4">Únete a nuestra misión</h2>
+                        <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
+                            Saber más
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+<script src="js/carousel.js"></script>
+<script src="js/index.js"></script>
 </body>
 
 </html>
