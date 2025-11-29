@@ -124,7 +124,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    width: 64px;
+    width: 95px;
     height: 64px;
 }
 
@@ -133,7 +133,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    width: 310px;
+    width: 390px;
     height: 95px;
     z-index: 1;
     pointer-events: none;
@@ -761,8 +761,8 @@ body {
 /* SECCIÓN ANTES DE DONAR */
 .antes-de-donar-section {
     background: var(--azul);
-    padding: 80px 20px;
-    min-height: 500px;
+    padding: 60px 20px;
+    min-height: 400px;
 }
 
 .antes-de-donar-container {
@@ -784,9 +784,9 @@ body {
 
 .antes-title {
     color: var(--beige);
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-family: 'Arturo', Arial, sans-serif;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
@@ -794,15 +794,15 @@ body {
 .antes-lista {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 18px;
 }
 
 .antes-item {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
+    gap: 15px;
     background: rgba(247, 243, 218, 0.1);
-    padding: 20px;
+    padding: 14px;
     border-radius: 15px;
     border-left: 5px solid var(--rojo-rubi);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -816,10 +816,10 @@ body {
 .antes-numero {
     background: var(--rojo-rubi);
     color: var(--beige);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -830,7 +830,7 @@ body {
 
 .antes-descripcion {
     color: var(--beige);
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     font-weight: 500;
     margin: 0;
     line-height: 1.4;
@@ -844,10 +844,10 @@ body {
 }
 
 .antes-imagen {
-    max-width: 80%;
+    max-width: 370px;
     height: auto;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
 }
 
@@ -1016,3 +1016,519 @@ body {
         padding: 60px 20px;
     }
 }
+
+/* SECCIÓN DESPUÉS DE DONAR */
+.despues-de-donar-section {
+    background: var(--azul);
+    padding: 60px 20px;
+    min-height: 400px;
+}
+
+.despues-de-donar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.despues-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.despues-left {
+    flex: 1;
+    max-width: 600px;
+}
+
+.despues-title {
+    color: var(--beige);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-family: 'Arturo', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.despues-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.despues-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(247, 243, 218, 0.1);
+    padding: 14px;
+    border-radius: 15px;
+    border-left: 5px solid var(--rojo-rubi);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.despues-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.despues-numero {
+    background: var(--rojo-rubi);
+    color: var(--beige);
+    font-size: 1.2rem;
+    font-weight: 700;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: sans-serif;
+}
+
+.despues-descripcion {
+    color: var(--beige);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.despues-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.despues-imagen {
+    max-width: 370px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.despues-imagen:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive para después de donar */
+@media (max-width: 1024px) {
+    .despues-content {
+        gap: 40px;
+    }
+
+    .despues-title {
+        font-size: 2.5rem;
+    }
+
+    .despues-descripcion {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .despues-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .despues-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    .despues-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .despues-descripcion {
+        font-size: 1rem;
+    }
+
+    .despues-de-donar-section {
+        padding: 60px 20px;
+    }
+}
+
+/* SECCIÓN RECUADROS */
+.recuadros-section {
+    background: var(--beige);
+    padding: 60px 20px;
+    min-height: 600px;
+}
+
+.recuadros-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Contador de donaciones */
+.donaciones-counter {
+    background: radial-gradient(circle, #AA0235, #69021E);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    height: auto;
+    width: 70%;
+    margin-left: auto;
+    margin-right: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.donaciones-mensaje {
+    color: var(--beige);
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    font-family: sans-serif;
+}
+
+.donaciones-total {
+    color: var(--beige);
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 0;
+    font-family: sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.donaciones-content {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.elementos-container {
+    position: absolute;
+    top: 67px;
+    right: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elementos-imagen {
+    width: 90px;
+    height: auto;
+}
+
+.punno-container {
+    position: absolute;
+    bottom: -55px;
+    top: 10px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.punno-imagen {
+    width: 80px;
+    height: auto;
+}
+
+
+/* Grid de recuadros */
+.recuadros-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 32px 32px;
+    margin-top: 0;
+    width: 800px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    color: #F7F3DA;
+}
+
+/* Estilos base para recuadros */
+.recuadro {
+    border-radius: 16px;
+    padding: 28px 22px 22px 22px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    min-height: 370px;
+    background: #003049;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.recuadro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.recuadro-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Arturo', Arial, sans-serif;
+}
+
+.recuadro-descripcion {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.recuadro-btn {
+    background: var(--rojo-rubi);
+    border: none;
+    border-radius: 999px;
+    padding: 13px 0;
+    font-weight: 700;
+    font-size: 1.08rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    font-family: 'Arturo', Arial, sans-serif;
+    margin-top: 10px;
+}
+
+.recuadro-btn:hover {
+    background: var(--burdeos);
+}
+
+.recuadro-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Registro de Donantes */
+.registro-donantes {
+    background: linear-gradient(135deg, var(--azul), #1a4b5c);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.recuadro-descripcion {
+    max-width: 300px;
+    justify-content: center;
+    display: flex;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+
+
+.recuadro-beneficios {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+
+}
+
+.recuadro-beneficios li {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.corazonredondo-container {
+    bottom: 20px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.corazonredondo-imagen {
+    width: 60px;
+    max-width: 170px;
+    height: auto;
+    margin-left: 12px;
+
+}
+
+/* Campañas y Centros */
+.campanias-centros {
+    background: linear-gradient(135deg, var(--azul), #1a4b5c);
+    justify-content: center;
+}
+
+
+.mapa-container {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.mapa-imagen {
+    width: 900px;
+    max-width: 270px;
+    justify-content: center;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-left: 34px;
+    margin-bottom: 39px;
+}
+
+
+/* Alertas y Notificaciones */
+.alertas-notificaciones {
+    background: linear-gradient(135deg, var(--azul), #1a4b5c);
+    min-height: 160px !important;
+    padding: 24px 20px 20px 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.alertas-notificaciones .recuadro-title {
+    margin-bottom: 12px;
+}
+
+.alerta-urgente {
+    border: 3px solid var(--rojo-rubi);
+    padding: 18px;
+    border-radius: 12px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.alerta-descripcion {
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    font-size: 1.1rem;
+}
+
+.alerta-detalle {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-family: "Arturo", sans-serif;
+    flex-direction: column !important;
+    gap: 5px;
+}
+
+.alerta-detalle .alerta-tiempo {
+    color: #AA0235 !important;
+    font-weight: 800;
+    font-family: sans-serif !important;
+
+}
+
+.gotasangre-container {
+    bottom: 20px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.gotasangre-imagen {
+    width: 60px;
+    max-width: 170px;
+    height: auto;
+    margin-left: 5px;
+}
+
+/* Sección Educativa */
+.seccion-educativa {
+    background: linear-gradient(135deg, var(--azul), #1a4b5c);
+    min-height: 160px !important;
+    padding: 16px 18px 12px 18px;
+}
+
+.seccion-educativa p {
+    text-align: left;
+}
+
+/* Reconocimiento y Perfil */
+.reconocimiento-perfil {
+    background: linear-gradient(135deg, var(--azul), #1a4b5c);
+    color: var(--beige);
+    min-height: 160px !important;
+    padding: 16px 18px 12px 18px;
+}
+
+.reconocimiento-perfil p {
+    text-align: left;
+}
+
+/* Estadísticas y Testimonios */
+.estadisticas-testimonios {
+    background: linear-gradient(135deg, var(--azul), #1a4b5c);
+    min-height: 260px !important;
+    padding: 16px 18px 12px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.estadisticas-testimonios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.estadisticas-testimonios .recuadro-title {
+    margin: 0;
+    flex: 1;
+    line-height: 1.2;
+}
+
+.estadisticas-testimonios p {
+    text-align: left;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.manocorazon-imagen {
+    width: 58px;
+    height: auto;
+    margin-left: 8px;
+    flex-shrink: 0;
+    margin-left: 100px;
+}
+
+/* Responsive para recuadros */
+@media (max-width: 768px) {
+    .recuadros-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .donaciones-mensaje {
+        font-size: 1.5rem;
+    }
+
+    .donaciones-total {
+        font-size: 2rem;
+    }
+
+    .recuadro {
+        padding: 20px;
+    }
+
+    .recuadro-title {
+        font-size: 1.2rem;
+    }
+}
+
+/*FOOTER*/

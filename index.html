@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GotaDeVida</title>
     <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/modal-test.css">
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="img/gota.png" type="image/png">
@@ -13,7 +14,6 @@
 </head>
 
 <body>
-    <!-- HEARDER  -->
     <!-- HEARDER  -->
     <header class="site-header">
         <div class="header-inner">
@@ -32,7 +32,7 @@
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="#">ALERTAS</a></li>
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="donante.html">PERFIL</a></li>
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">PERFIL</a></li>
                     <li class="menu-corazon">
                         <button class="heart-btn" aria-label="Registrar">
                             <img src="img/corazon.png" alt="Corazón" class="corazon-icon">
@@ -40,7 +40,8 @@
                         </button>
                     </li>
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">SEGUIMIENTO</a></li>
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">SEGUMIENTO</a>
+                    </li>
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="#">EDUCACIÓN</a></li>
                     <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
@@ -92,7 +93,8 @@
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <div class="text-center text-white">
                         <h2 class="text-4xl font-bold mb-4">¿Quieres saber si podes donar?</h2>
-                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
+                        <button
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
                             realizar el test
                         </button>
                     </div>
@@ -104,7 +106,8 @@
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <div class="text-center text-white">
                         <h2 class="text-4xl font-bold mb-4">Tu donación salva vidas</h2>
-                        <button class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
+                        <button
+                            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
                             Donar ahora
                         </button>
                     </div>
@@ -116,7 +119,8 @@
                 <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                     <div class="text-center text-white">
                         <h2 class="text-4xl font-bold mb-4">Únete a nuestra misión</h2>
-                        <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
+                        <button
+                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full transition-colors">
                             Saber más
                         </button>
                     </div>
@@ -124,6 +128,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- SECCIÓN IMPORTANCIA -->
     <section class="importancia-section">
@@ -138,13 +143,58 @@
     </section>
 
     <!-- SECCIÓN QUIÉN PUEDE DONAR -->
-        <section class="quiendona-section">
-            <div id="quien-donar" class="quien-donar-container">
-            </div>
-        </section>
+    <section class="quiendona-section">
+        <div id="quien-donar" class="quien-donar-container">
+        </div>
+    </section>
 
-<script src="json/carousel.js"></script>
-<script src="js/index.js"></script>
+    <!-- SECCIÓN DESPUÉS DE DONAR -->
+    <section class="despues-de-donar-section">
+        <div id="despues-de-donar" class="despues-de-donar-container">
+        </div>
+    </section>
+
+
+    <!-- SECCIÓN RECUADROS -->
+    <section class="recuadros-section">
+        <div id="recuadros-container" class="recuadros-container">
+        </div>
+    </section>
+
+    <script src="json/carousel.js"></script>
+    <script type="module" src="json/recuadros.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/interacciones.js"></script>
+
+        <!-- FOOTER  -->
+    <footer class="bg-[var(--azul)] text-[var(--beige)] py-10 mt-14">
+        <div class="max-w-[1300px] mx-auto flex flex-wrap justify-between items-start gap-10">
+            <div>
+                <img src="img/logo.png" class="w-20 mb-2">
+                <p class="font-semibold">Donadores con corazón</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="index.html">Inicio</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="centros.html">Campañas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="alertas.html">Alertas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Educación</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="contacto.html">Contacto</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="acercade.html">Acerca De</a>
+            </div>
+
+            <div class="flex gap-4">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+            </div>
+        </div>
+
+        <p class="text-center mt-6 opacity-80 text-[14px]">
+            © 2025 Una Gota de Vida — Todos los derechos reservados.
+        </p>
+    </footer>
 </body>
+
 
 </html>

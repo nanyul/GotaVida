@@ -1,0 +1,22 @@
+{
+    "titulo": "DESPUÉS DE DONAR",
+    "recomendaciones": [
+        {
+            "numero": 1,
+            "descripcion": "Quitar la tirita mínimo 2 h después."
+        },
+        {
+            "numero": 2,
+            "descripcion": "Evitar lugares calurosos."
+        },
+        {
+            "numero": 3,
+            "descripcion": "No beber alcohol las 2 h siguientes."
+        },
+        {
+            "numero": 4,
+            "descripcion": "Beber líquido de manera abundante."
+        }
+    ],
+    "Imagen": "img/DespuesDeDonar.png"
+}

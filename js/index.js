@@ -50,7 +50,7 @@ function createCarouselSlides(slidesData) {
             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div class="text-center" style="color: #F7F3DA;">
                     <h2 class="text-4xl font-bold mb-4">${slideData.title}</h2>
-                    <button style="background-color: ${buttonColor}; color: #F7F3DA; font-weight: bold; padding: 0.75rem 2rem; border-radius: 9999px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='${buttonHoverColor}'" onmouseout="this.style.backgroundColor='${buttonColor}'">
+                    <button data-action="test-donacion" style="background-color: ${buttonColor}; color: #F7F3DA; font-weight: bold; padding: 0.75rem 2rem; border-radius: 9999px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='${buttonHoverColor}'" onmouseout="this.style.backgroundColor='${buttonColor}'">
                     ${slideData.buttonText}
                     </button>
                 </div>
@@ -176,6 +176,159 @@ function createQuienDonarSection(data) {
     });
     elementosHTML += '</div>';
     quienDonarContainer.innerHTML = tituloHTML + elementosHTML;
+}
+
+//Despues de donar seccion
+fetch("json/despuesdedonar.json")
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        createDespuesDeDonarSection(data);
+    })
+    .catch(error => {
+        console.error('Error loading despues de donar data:', error);
+    });
+
+function createDespuesDeDonarSection(data) {
+    const despuesContainer = document.getElementById('despues-de-donar');
+    despuesContainer.innerHTML = ''; // Limpiar contenido existente
+
+    const sectionHTML = `
+        <div class="despues-content">
+                    <div class="despues-right">
+                <img src="${data.Imagen}" alt="Después de donar" class="despues-imagen">
+            </div>
+            <div class="despues-left">
+                <h2 class="despues-title">${data.titulo}</h2>
+                <div class="despues-lista">
+                    ${data.recomendaciones.map(rec => `
+                        <div class="despues-item">
+                            <span class="despues-numero">${rec.numero}</span>
+                            <p class="despues-descripcion">${rec.descripcion}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `;
+    despuesContainer.innerHTML = sectionHTML;
+
+}
+
+//Recuadros seccion
+import('../json/recuadros.js')
+    .then(module => {
+        console.log(module.default);
+        createRecuadrosSection(module.default);
+    })
+    .catch(error => {
+        console.error('Error loading recuadros data:', error);
+    });
+
+function createRecuadrosSection(data) {
+    const recuadrosContainer = document.getElementById('recuadros-container');
+    recuadrosContainer.innerHTML = '';
+
+    // Mensaje principal de donaciones
+    const mensajePrincipalHTML = `
+        <div class="donaciones-counter">
+            <div class="punno-container">
+                <img src="${data.donaciones.imagen1}" alt="punno" class="punno-imagen">
+            </div>
+            <div class="donaciones-content">
+                <h2 class="donaciones-mensaje">${data.donaciones.mensaje}</h2>
+                <div class="donaciones-total">${data.donaciones.total.toLocaleString()} DONACIONES</div>
+            </div>
+            <div class="elementos-container">
+                <img src="${data.donaciones.imagen2}" alt="Elementos" class="elementos-imagen">
+            </div>
+        </div>
+    `;
+
+    // Grid de secciones
+    let seccionesHTML = '<div class="recuadros-grid">';
+
+    data.secciones.forEach((seccion, index) => {
+        let recuadroContent = '';
+
+        if (seccion.nombre === "Registro de Donantes") {
+            recuadroContent = `
+                <div class="recuadro registro-donantes">
+                    <div class="corazonredondo-container">
+                        <img src="${seccion.imagen}" alt="CorazonRedondo" class="corazonredondo-imagen">
+                    </div>
+                    <h3 class="recuadro-title">${seccion.nombre}</h3>
+                    <p class="recuadro-descripcion">${seccion.descripcion}</p>
+                    <ul class="recuadro-beneficios">
+                        ${seccion.beneficios.map(beneficio => `<li>• ${beneficio}</li>`).join('')}
+                    </ul>
+                    <button class="recuadro-btn">${seccion.boton}</button>
+                </div>
+            `;
+        } else if (seccion.nombre === "Campañas y Centros cercanos") {
+            recuadroContent = `
+                <div class="recuadro campanias-centros">
+                    <h3 class="recuadro-title">${seccion.nombre}</h3>
+                    <div class="mapa-container">
+                        <img src="${seccion.imagen}" alt="Mapa" class="mapa-imagen">
+                    </div>
+                    <button class="recuadro-btn">${seccion.boton}</button>
+                </div>
+            `;
+        } else if (seccion.nombre === "Alertas y Notificaciones") {
+            recuadroContent = `
+                <div class="recuadro alertas-notificaciones">
+                    <h3 class="recuadro-title">${seccion.nombre}</h3>
+                    <div class="alerta-urgente">
+                        <div class="gotasangre-container">
+                            <img src="${seccion.imagen}" alt="Gota de Sangre" class="gotasangre-imagen">
+                        </div>
+                        <div class="alerta-content">
+                            <p class="alerta-descripcion">${seccion.descripcion}</p>
+                            <div class="alerta-detalle">
+                                <span class="alerta-lugar">${seccion.detalle.lugar}</span>
+                                <span class="alerta-tiempo">${seccion.detalle.tiempo}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        } else if (seccion.nombre === "Sección Educativa") {
+            recuadroContent = `
+                <div class="recuadro seccion-educativa">
+                    <h3 class="recuadro-title">${seccion.nombre}</h3>
+                    <p class="recuadro-descripcion">${seccion.descripcion}</p>
+                    <button class="recuadro-btn">${seccion.boton}</button>
+                </div>
+            `;
+        } else if (seccion.nombre === "Reconocimiento, insignias y Perfil") {
+            recuadroContent = `
+                <div class="recuadro reconocimiento-perfil">
+                    <h3 class="recuadro-title">${seccion.nombre}</h3>
+                    <p class="recuadro-descripcion">${seccion.descripcion}</p>
+                    <button class="recuadro-btn">${seccion.boton}</button>
+                </div>
+            `;
+        } else if (seccion.nombre === "Estadísticas y Testimonios") {
+            const tituloConSalto = "Estadísticas y <br> Testimonios";
+            recuadroContent = `
+                <div class="recuadro estadisticas-testimonios">
+                    <div class="estadisticas-testimonios-header">
+                        <h3 class="recuadro-title">${tituloConSalto}</h3>
+                        <img src="${seccion.imagen}" alt="Mano con Corazon" class="manocorazon-imagen">
+                    </div>
+                    <p class="recuadro-descripcion">${seccion.descripcion}</p>
+                    <button class="recuadro-btn">${seccion.boton}</button>
+                </div>
+            `;
+        }
+
+        seccionesHTML += recuadroContent;
+    });
+
+    seccionesHTML += '</div>';
+
+    recuadrosContainer.innerHTML = mensajePrincipalHTML + seccionesHTML;
 }
 
 
