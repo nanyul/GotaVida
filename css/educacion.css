@@ -1,0 +1,184 @@
+/* Sección Beneficios de donar sangre */
+.beneficios-de-donar-section {
+    background: var(--beige, #F7F3DA);
+    padding: 60px 20px;
+    min-height: 100vh;
+}
+
+.beneficios-de-donar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Título */
+.beneficios-title-wrapper {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.beneficios-main-title {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--negro, #030206);
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.beneficios-subtitle {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 56px;
+    font-weight: 700;
+    background: var(--rojo-rubi, #AA0235);
+    color: var(--beige, #F7F3DA);
+    display: inline-block;
+    padding: 20px 80px;
+    border-radius: 60px;
+    margin: 0;
+    box-shadow: 0 8px 20px rgba(170, 2, 53, 0.3);
+}
+
+/* Contenido */
+.beneficios-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    align-items: center;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Columnas de beneficios */
+.beneficios-left-column,
+.beneficios-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.beneficios-left-column {
+    align-items: flex-end;
+}
+
+.beneficios-right-column {
+    align-items: flex-start;
+}
+
+/* Botones de beneficios */
+.beneficio-btn {
+    background: var(--azul, #003049);
+    color: var(--beige, #F7F3DA);
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 48, 73, 0.3);
+    max-width: 450px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.beneficio-btn:hover {
+    background: var(--rojo-rubi, #AA0235);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(170, 2, 53, 0.4);
+}
+
+/* Columna central con imagen */
+.beneficios-center-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.beneficios-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .beneficios-content {
+        gap: 30px;
+    }
+
+    .beneficio-btn {
+        font-size: 16px;
+        padding: 16px 35px;
+        max-width: 400px;
+    }
+
+    .beneficios-subtitle {
+        font-size: 48px;
+        padding: 18px 60px;
+    }
+
+    .beneficios-main-title {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 992px) {
+    .beneficios-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .beneficios-left-column,
+    .beneficios-right-column {
+        align-items: center;
+    }
+
+    .beneficio-btn {
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .beneficios-center-column {
+        order: -1;
+    }
+
+    .beneficios-image {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+    .beneficios-de-donar-section {
+        padding: 40px 15px;
+    }
+
+    .beneficios-title-wrapper {
+        margin-bottom: 40px;
+    }
+
+    .beneficios-main-title {
+        font-size: 32px;
+    }
+
+    .beneficios-subtitle {
+        font-size: 32px;
+        padding: 15px 40px;
+    }
+
+    .beneficio-btn {
+        font-size: 15px;
+        padding: 14px 30px;
+    }
+
+    .beneficios-content {
+        gap: 25px;
+    }
+
+    .beneficios-left-column,
+    .beneficios-right-column {
+        gap: 20px;
+    }
+}
