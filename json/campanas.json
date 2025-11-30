@@ -1,0 +1,135 @@
+[
+  {
+    "id": 1,
+    "titulo": "Donación Hospital México",
+    "fecha": "2025-11-30",
+    "lugar": "Hospital México",
+    "tipo": "Sangre total",
+    "tipoSangre": "O+",
+    "requisitos": "18-65 años, >50kg",
+    "contacto": "2222-2222",
+    "lat": 9.9385,
+    "lng": -84.0817
+  },
+  {
+    "id": 2,
+    "titulo": "Colecta Banco Nacional de Sangre",
+    "fecha": "2025-12-05",
+    "lugar": "Banco Nacional de Sangre",
+    "tipo": "Plaquetas",
+    "tipoSangre": "B+",
+    "requisitos": "Haber donado anteriormente",
+    "contacto": "2233-2233",
+    "lat": 9.9327,
+    "lng": -84.079
+  },
+  {
+    "id": 3,
+    "titulo": "Jornada UCR - Escuela de Medicina",
+    "fecha": "2025-12-12",
+    "lugar": "UCR, San Pedro",
+    "tipo": "Sangre total",
+    "tipoSangre": "A+",
+    "requisitos": "Identificación válida",
+    "contacto": "2255-5500",
+    "lat": 9.936,
+    "lng": -84.051
+  },
+  {
+    "id": 4,
+    "titulo": "Banco de Sangre San José",
+    "fecha": "2025-12-20",
+    "lugar": "Banco San José",
+    "tipo": "Plasma",
+    "tipoSangre": "O-",
+    "requisitos": "Ayuno de 2 horas",
+    "contacto": "2211-1100",
+    "lat": 9.93,
+    "lng": -84.07
+  },
+  {
+  "id": 5,
+  "titulo": "Colecta Instituto Nacional de Seguros",
+  "fecha": "2025-12-10",
+  "lugar": "INS, San José",
+  "tipo": "Sangre total",
+  "tipoSangre": "B+",
+  "requisitos": "Mayor de 18 años, sin resfriados recientes",
+  "contacto": "2547-6000",
+  "lat": 9.935,
+  "lng": -84.080
+  },
+  {
+  "id": 6,
+  "titulo": "Jornada de Donación Municipalidad de Heredia",
+  "fecha": "2025-12-15",
+  "lugar": "Municipalidad de Heredia",
+  "tipo": "Plaquetas",
+  "tipoSangre": "A-",
+  "requisitos": "Haber donado al menos una vez",
+  "contacto": "2260-1700",
+  "lat": 9.9985,
+  "lng": -84.1190
+  },
+  {
+  "id": 7,
+  "titulo": "Cruz Roja Tibás – Jornada Especial",
+  "fecha": "2025-12-22",
+  "lugar": "Cruz Roja Tibás",
+  "tipo": "Sangre total",
+  "tipoSangre": "B-",
+  "requisitos": "Ayuno ligero, llevar identificación",
+  "contacto": "2297-2940",
+  "lat": 9.9637,
+  "lng": -84.0782
+ },
+ {
+  "id": 8,
+  "titulo": "Colecta Clínica Bíblica",
+  "fecha": "2025-12-18",
+  "lugar": "Clínica Bíblica, San José",
+  "tipo": "Plasma",
+  "tipoSangre": "B+",
+  "requisitos": "Peso > 55kg, sin tatuajes recientes",
+  "contacto": "2522-1000",
+  "lat": 9.9331,
+  "lng": -84.0761
+  },
+  {
+  "id": 9,
+  "titulo": "Campaña TEC Cartago",
+  "fecha": "2026-01-15",
+  "lugar": "Tecnológico de Costa Rica, Cartago",
+  "tipo": "Sangre total",
+  "tipoSangre": "O+",
+  "requisitos": "Ayuno de 4h, descanso previo",
+  "contacto": "2550-2000",
+  "lat": 9.8570,
+  "lng": -83.9121
+ },
+ {
+  "id": 10,
+  "titulo": "Jornada UNIBE San José",
+  "fecha": "2025-12-28",
+  "lugar": "UNIBE, San José",
+  "tipo": "Plaquetas",
+  "tipoSangre": "A+",
+  "requisitos": "No haber ingerido aspirina en 48h",
+  "contacto": "2240-0400",
+  "lat": 9.9502,
+  "lng": -84.0992
+},
+{
+  "id": 11,
+  "titulo": "Donación Hospital San Rafael",
+  "fecha": "2025-12-14",
+  "lugar": "Hospital San Rafael, Alajuela",
+  "tipo": "Sangre total",
+  "tipoSangre": "AB+",
+  "requisitos": "18–65 años, ayuno ligero",
+  "contacto": "2436-0200",
+  "lat": 10.0189,
+  "lng": -84.2144
+}
+
+]

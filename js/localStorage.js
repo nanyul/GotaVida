@@ -37,7 +37,9 @@ function cargarDatosFormulario(data) {
     document.getElementById("cedula").value = data.cedula;
     document.getElementById("telefono").value = data.telefono;
     document.getElementById("grupo").value = data.grupo;
-    document.getElementById("historial").value = data.historial.map(h => `${h.campaña} - ${h.fecha}`).join("\n");
+    document.getElementById("historial").value = 
+    data.historial.map(h => `${h.campaña} - ${new Date(h.fechaInscripcion).toLocaleDateString()}`).join("\n");
+    //document.getElementById("historial").value = data.historial.map(h => `${h.campaña} - ${h.fecha}`).join("\n");
     //document.getElementById("historial").value = data.historial;
     document.getElementById("disponible").value = data.disponible;
 }
@@ -179,8 +181,6 @@ document.addEventListener("click", (e) => {
 
 
 // LOGIN MINI
-
-
 document.getElementById("btnLoginMini").addEventListener("click", () => {
     const cedula = document.getElementById("loginCedula").value.trim();
     const error = document.getElementById("loginError");
@@ -204,8 +204,6 @@ document.getElementById("btnLoginMini").addEventListener("click", () => {
 
 
 // CERRAR SESIÓN
-
-
 document.getElementById("cerrarSesion").addEventListener("click", () => {
     // 1) Quitar usuario activo (no borra la cuenta, solo la sesión)
     localStorage.removeItem("usuarioActivo");
@@ -241,7 +239,6 @@ document.getElementById("cerrarSesion").addEventListener("click", () => {
 
 
 // ANIMACIÓN GUARDADO + NOTIFICACIÓN
-
 function animacionGuardado() {
     const card = document.getElementById("perfilGuardado");
 

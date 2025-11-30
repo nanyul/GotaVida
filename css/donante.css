@@ -1,3 +1,89 @@
+/* CONTENEDOR DEL PERFIL */
+#perfilForm, #perfilGuardado {
+    animation: fadeIn .4s ease-out;
+}
+
+section {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    border: 2px solid var(--burdeos);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* TÍTULO PRINCIPAL */
+section h2 {
+    font-size: 32px !important;
+    font-weight: 800;
+    color: var(--burdeos) !important;
+    letter-spacing: -0.5px;
+}
+
+/* LABELS */
+section label {
+    color: var(--azul) !important;
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: block;
+    font-size: 15px;
+}
+
+/* INPUTS */
+section input,
+section select,
+section textarea {
+    border: 2px solid #e5e7eb;
+    padding: 12px 14px;
+    border-radius: 12px !important;
+    transition: .25s;
+    font-size: 15px;
+}
+
+section input:focus,
+section select:focus,
+section textarea:focus {
+    border-color: var(--rojo-rubi);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(170,2,53,0.15);
+}
+
+/* BOTÓN GUARDAR */
+section button[type="submit"] {
+    background: var(--rojo-rubi);
+    border-radius: 14px !important;
+    padding: 14px;
+    font-size: 17px;
+    box-shadow: 0 6px 14px rgba(170,2,53,0.35);
+    transition: .25s;
+}
+
+section button[type="submit"]:hover {
+    background: var(--burdeos);
+    transform: translateY(-2px);
+}
+
+/* TARJETA DE PERFIL GUARDADO */
+#perfilGuardado {
+    background: #fff8f4;
+    border-radius: 18px;
+    border: 2px solid var(--burdeos);
+    padding: 25px;
+}
+
+/* LINETIME HISTORIAL */
+#historial {
+    font-family: monospace;
+    line-height: 1.5;
+    resize: none;
+}
+
+/* EFECTO SUAVE DE ENTRADA */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+
 #miniPerfil {
     background: linear-gradient(135deg, #ffffff, #ffe7e7);
     transition: transform .25s ease, box-shadow .25s ease;
@@ -20,7 +106,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive adjustments for mini profile / menus */
 @media (max-width: 640px) {
     #miniPerfil {
         right: 0.5rem;
@@ -36,7 +121,6 @@
         height: 2.6rem;
     }
 
-    /* Make menu / login panels easier to tap and fit on small screens */
     #miniMenu, #loginMini {
         right: 0.5rem;
         bottom: 4.2rem;
@@ -60,11 +144,14 @@
         height: 2.2rem;
     }
 
-    /* Ensure popups don't overflow on very small screens */
+    
     #miniMenu, #loginMini {
         left: 0.5rem;
         right: 0.5rem;
         width: auto;
         max-width: none;
     }
-}
+} 
+
+
+
