@@ -1,6 +1,5 @@
-/* Sección Beneficios de donar sangre */
 .beneficios-de-donar-section {
-    background: var(--beige, #F7F3DA);
+    background: #F7F3DA;
     padding: 60px 20px;
     min-height: 100vh;
 }
@@ -10,92 +9,123 @@
     margin: 0 auto;
 }
 
-/* Título */
-.beneficios-title-wrapper {
+
+.beneficios-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.beneficios-left {
     text-align: center;
     margin-bottom: 60px;
 }
 
 .beneficios-main-title {
     font-family: 'Arturo', Arial, sans-serif;
-    font-size: 48px;
+    font-size: 52px;
     font-weight: 700;
-    color: var(--negro, #030206);
+    color: #030206;
     margin: 0;
     margin-bottom: 10px;
 }
 
 .beneficios-subtitle {
     font-family: 'Arturo', Arial, sans-serif;
-    font-size: 56px;
+    font-size: 30px;
     font-weight: 700;
-    background: var(--rojo-rubi, #AA0235);
-    color: var(--beige, #F7F3DA);
+    background: #69021E;
+    color: #F7F3DA;
     display: inline-block;
     padding: 20px 80px;
     border-radius: 60px;
     margin: 0;
-    box-shadow: 0 8px 20px rgba(170, 2, 53, 0.3);
+    box-shadow: 0 8px 20px rgba(105, 2, 30, 0.4);
 }
 
-/* Contenido */
-.beneficios-content {
+.beneficios-lista {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
-    gap: 40px;
+    grid-template-rows: repeat(3, auto);
+    gap: 30px 50px;
     align-items: center;
-    max-width: 1300px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
 }
 
-/* Columnas de beneficios */
-.beneficios-left-column,
-.beneficios-right-column {
+/* Primeros 3 beneficios - columna izquierda */
+.beneficio-btn:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.beneficio-btn:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+}
+
+.beneficio-btn:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: end;
+}
+
+/* Últimos 3 beneficios - columna derecha */
+.beneficio-btn:nth-child(4) {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.beneficio-btn:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: start;
+}
+
+.beneficio-btn:nth-child(6) {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: start;
+}
+
+/* Imagen en el centro */
+.beneficios-right {
+    grid-column: 2;
+    grid-row: 1 / 4;
     display: flex;
-    flex-direction: column;
-    gap: 30px;
+    justify-content: center;
+    align-items: center;
 }
 
-.beneficios-left-column {
-    align-items: flex-end;
-}
 
-.beneficios-right-column {
-    align-items: flex-start;
-}
-
-/* Botones de beneficios */
 .beneficio-btn {
-    background: var(--azul, #003049);
-    color: var(--beige, #F7F3DA);
+    background: #003049;
+    color: #F7F3DA;
     border: none;
     padding: 18px 40px;
     border-radius: 50px;
     font-family: 'Arturo', Arial, sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 48, 73, 0.3);
-    max-width: 450px;
     text-align: center;
     line-height: 1.4;
+    max-width: 450px;
+    white-space: normal;
 }
 
 .beneficio-btn:hover {
-    background: var(--rojo-rubi, #AA0235);
+    background: #AA0235;
     transform: translateY(-3px);
     box-shadow: 0 6px 20px rgba(170, 2, 53, 0.4);
 }
 
-/* Columna central con imagen */
-.beneficios-center-column {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-}
-
+/* Imagen */
 .beneficios-image {
     width: 100%;
     max-width: 500px;
@@ -105,8 +135,8 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
-    .beneficios-content {
-        gap: 30px;
+    .beneficios-lista {
+        gap: 25px 40px;
     }
 
     .beneficio-btn {
@@ -116,37 +146,51 @@
     }
 
     .beneficios-subtitle {
-        font-size: 48px;
+        font-size: 42px;
         padding: 18px 60px;
     }
 
     .beneficios-main-title {
-        font-size: 40px;
-    }
-}
-
-@media (max-width: 992px) {
-    .beneficios-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .beneficios-left-column,
-    .beneficios-right-column {
-        align-items: center;
-    }
-
-    .beneficio-btn {
-        max-width: 500px;
-        width: 100%;
-    }
-
-    .beneficios-center-column {
-        order: -1;
+        font-size: 48px;
     }
 
     .beneficios-image {
         max-width: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .beneficios-lista {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    .beneficio-btn:nth-child(1),
+    .beneficio-btn:nth-child(2),
+    .beneficio-btn:nth-child(3),
+    .beneficio-btn:nth-child(4),
+    .beneficio-btn:nth-child(5),
+    .beneficio-btn:nth-child(6) {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: center;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .beneficios-right {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 20px;
+    }
+
+    .beneficios-image {
+        max-width: 350px;
+    }
+
+    .beneficios-left {
+        margin-bottom: 40px;
     }
 }
 
@@ -155,16 +199,12 @@
         padding: 40px 15px;
     }
 
-    .beneficios-title-wrapper {
-        margin-bottom: 40px;
-    }
-
     .beneficios-main-title {
-        font-size: 32px;
+        font-size: 36px;
     }
 
     .beneficios-subtitle {
-        font-size: 32px;
+        font-size: 28px;
         padding: 15px 40px;
     }
 
@@ -173,12 +213,11 @@
         padding: 14px 30px;
     }
 
-    .beneficios-content {
-        gap: 25px;
+    .beneficios-lista {
+        gap: 15px;
     }
 
-    .beneficios-left-column,
-    .beneficios-right-column {
-        gap: 20px;
+    .beneficios-left {
+        margin-bottom: 30px;
     }
 }

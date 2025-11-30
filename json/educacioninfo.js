@@ -1,8 +1,8 @@
 const donarSangreInfo = {
     beneficios_donar_sangre: [
-        "Facilitas procedimientos médicos y de emergencia",
         "Salvas vidas",
         "Mejora la salud cardiovascular",
+        "Facilitas procedimientos médicos y de emergencia",
         "Estimula la producción de nuevas células sanguíneas",
         "Fomenta una cultura de solidaridad",
         "Reduces el riesgo de enfermedades cardíacas",

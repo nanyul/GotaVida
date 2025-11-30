@@ -5,76 +5,29 @@ import donarSangreInfo from '../json/educacioninfo.js';
 function createBeneficiosSection(data) {
     const container = document.getElementById('beneficios-de-donar');
     if (!container) return;
+    container.innerHTML = ''; // Limpiar contenido existente
 
-    // Crear el título principal
-    const titleWrapper = document.createElement('div');
-    titleWrapper.className = 'beneficios-title-wrapper';
-    
-    const mainTitle = document.createElement('h2');
-    mainTitle.className = 'beneficios-main-title';
-    mainTitle.textContent = 'Algunos';
-    
-    const subtitle = document.createElement('h1');
-    subtitle.className = 'beneficios-subtitle';
-    subtitle.textContent = 'Beneficios de donar sangre';
-    
-    titleWrapper.appendChild(mainTitle);
-    titleWrapper.appendChild(subtitle);
-    container.appendChild(titleWrapper);
+    // Crear botones de beneficios
+    const allBeneficios = data.beneficios_donar_sangre.map((beneficio) => `
+        <button class="beneficio-btn">${beneficio}</button>
+    `).join('');
 
-    // Crear el contenedor de contenido
-    const contentWrapper = document.createElement('div');
-    contentWrapper.className = 'beneficios-content';
+    const sectionHTML = `
+        <div class="beneficios-content">
+            <div class="beneficios-left">
+                <h2 class="beneficios-main-title">Algunos</h2>
+                <h1 class="beneficios-subtitle">Beneficios de donar sangre</h1>
+            </div>
+            <div class="beneficios-lista">
+                ${allBeneficios}
+                <div class="beneficios-right">
+                    <img src="${data.beneficios_donar_sangre_imagen}" alt="Beneficios de donar sangre" class="beneficios-image">
+                </div>
+            </div>
+        </div>
+    `;
 
-    // Columna izquierda con beneficios
-    const leftColumn = document.createElement('div');
-    leftColumn.className = 'beneficios-left-column';
-
-    const leftBeneficios = [
-        data.beneficios_donar_sangre[1], // Salvas vidas
-        data.beneficios_donar_sangre[3], // Estimula la producción de nuevas células sanguíneas
-        data.beneficios_donar_sangre[5]  // Reduces el riesgo de enfermedades cardíaca
-    ];
-
-    leftBeneficios.forEach(beneficio => {
-        const beneficioBtn = document.createElement('button');
-        beneficioBtn.className = 'beneficio-btn beneficio-left';
-        beneficioBtn.textContent = beneficio;
-        leftColumn.appendChild(beneficioBtn);
-    });
-
-    // Columna central con imagen
-    const centerColumn = document.createElement('div');
-    centerColumn.className = 'beneficios-center-column';
-    
-    const img = document.createElement('img');
-    img.src = data.beneficios_donar_sangre_imagen;
-    img.alt = 'Beneficios de donar sangre';
-    img.className = 'beneficios-image';
-    centerColumn.appendChild(img);
-
-    // Columna derecha con beneficios
-    const rightColumn = document.createElement('div');
-    rightColumn.className = 'beneficios-right-column';
-
-    const rightBeneficios = [
-        data.beneficios_donar_sangre[2], // Mejora la salud cardiovascular
-        data.beneficios_donar_sangre[4], // Fomenta una cultura de solidaridad
-        data.beneficios_donar_sangre[0]  // Facilitas procedimientos médicos y de emergencia
-    ];
-
-    rightBeneficios.forEach(beneficio => {
-        const beneficioBtn = document.createElement('button');
-        beneficioBtn.className = 'beneficio-btn beneficio-right';
-        beneficioBtn.textContent = beneficio;
-        rightColumn.appendChild(beneficioBtn);
-    });
-
-    // Agregar columnas al contenedor
-    contentWrapper.appendChild(leftColumn);
-    contentWrapper.appendChild(centerColumn);
-    contentWrapper.appendChild(rightColumn);
-    container.appendChild(contentWrapper);
+    container.innerHTML = sectionHTML;
 }
 
 // Cargar y crear la sección cuando el DOM esté listo
