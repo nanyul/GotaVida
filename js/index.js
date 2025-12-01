@@ -53,7 +53,10 @@ function createCarouselSlides(slidesData) {
 
         // Construir el atributo data-action solo para el primer botón
         const dataAction = index === 0 ? 'data-action="test-donacion"' : '';
-        console.log(`Slide ${index}: dataAction = "${dataAction}"`);
+        // Construir el onclick para el segundo botón (Donar ahora)
+        const onclickAction = index === 1 ? 'onclick="window.location.href=\'centros.html\'"' : 
+                              index === 2 ? 'onclick="window.location.href=\'acercade.html\'"' : '';
+        console.log(`Slide ${index}: dataAction = "${dataAction}", onclick = "${onclickAction}"`);
 
         const slideHTML = `
         <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}" style="z-index: ${index === 0 ? '10' : '1'};">
@@ -61,7 +64,7 @@ function createCarouselSlides(slidesData) {
             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div class="text-center" style="color: #F7F3DA;">
                     <h2 class="text-4xl font-bold mb-4">${slideData.title}</h2>
-                    <button ${dataAction} style="background-color: ${buttonColor}; color: #F7F3DA; font-weight: bold; padding: 0.75rem 2rem; border-radius: 9999px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='${buttonHoverColor}'" onmouseout="this.style.backgroundColor='${buttonColor}'">
+                    <button ${dataAction} ${onclickAction} style="background-color: ${buttonColor}; color: #F7F3DA; font-weight: bold; padding: 0.75rem 2rem; border-radius: 9999px; transition: background-color 0.3s; cursor: pointer;" onmouseover="this.style.backgroundColor='${buttonHoverColor}'" onmouseout="this.style.backgroundColor='${buttonColor}'">
                     ${slideData.buttonText}
                     </button>
                 </div>
@@ -284,7 +287,7 @@ function createRecuadrosSection(data) {
                     <ul class="recuadro-beneficios">
                         ${seccion.beneficios.map(beneficio => `<li>• ${beneficio}</li>`).join('')}
                     </ul>
-                    <button class="recuadro-btn">${seccion.boton}</button>
+                    <button class="recuadro-btn"><a href="donante.html">${seccion.boton}</a></button>
                 </div>
             `;
         } else if (seccion.nombre === "Campañas y Centros cercanos") {
@@ -294,7 +297,7 @@ function createRecuadrosSection(data) {
                     <div class="mapa-container">
                         <img src="${seccion.imagen}" alt="Mapa" class="mapa-imagen">
                     </div>
-                    <button class="recuadro-btn">${seccion.boton}</button>
+                    <button class="recuadro-btn"><a href="contacto.html">${seccion.boton}</a></button>
                 </div>
             `;
         } else if (seccion.nombre === "Alertas y Notificaciones") {
@@ -320,7 +323,7 @@ function createRecuadrosSection(data) {
                 <div class="recuadro seccion-educativa">
                     <h3 class="recuadro-title">${seccion.nombre}</h3>
                     <p class="recuadro-descripcion">${seccion.descripcion}</p>
-                    <button class="recuadro-btn">${seccion.boton}</button>
+                    <button class="recuadro-btn"><a href="educacion.html">${seccion.boton}</a></button>
                 </div>
             `;
         } else if (seccion.nombre === "Reconocimiento, insignias y Perfil") {
@@ -328,7 +331,7 @@ function createRecuadrosSection(data) {
                 <div class="recuadro reconocimiento-perfil">
                     <h3 class="recuadro-title">${seccion.nombre}</h3>
                     <p class="recuadro-descripcion">${seccion.descripcion}</p>
-                    <button class="recuadro-btn">${seccion.boton}</button>
+                    <button class="recuadro-btn"><a href="segumiento.html">${seccion.boton}</a></button>
                 </div>
             `;
         } else if (seccion.nombre === "Estadísticas y Testimonios") {
@@ -340,7 +343,7 @@ function createRecuadrosSection(data) {
                         <img src="${seccion.imagen}" alt="Mano con Corazon" class="manocorazon-imagen">
                     </div>
                     <p class="recuadro-descripcion">${seccion.descripcion}</p>
-                    <button class="recuadro-btn">${seccion.boton}</button>
+                    <button class="recuadro-btn"><a href="contacto.html">${seccion.boton}</a></button>
                 </div>
             `;
         }
