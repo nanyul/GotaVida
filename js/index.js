@@ -256,7 +256,7 @@ function createRecuadrosSection(data) {
                     <div class="mapa-container">
                         <img src="${seccion.imagen}" alt="Mapa" class="mapa-imagen">
                     </div>
-                    <button class="recuadro-btn"><a href="contacto.html">${seccion.boton}</a></button>
+                    <button class="recuadro-btn"><a href="centros.html">${seccion.boton}</a></button>
                 </div>
             `;
         } else if (seccion.nombre === "Alertas y Notificaciones") {
@@ -290,7 +290,7 @@ function createRecuadrosSection(data) {
                 <div class="recuadro reconocimiento-perfil">
                     <h3 class="recuadro-title">${seccion.nombre}</h3>
                     <p class="recuadro-descripcion">${seccion.descripcion}</p>
-                    <button class="recuadro-btn"><a href="segumiento.html">${seccion.boton}</a></button>
+                    <button class="recuadro-btn"><a href="seguimiento.html">${seccion.boton}</a></button>
                 </div>
             `;
         } else if (seccion.nombre === "Estadísticas y Testimonios") {

@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: #003049;
+    background: linear-gradient(to bottom, #f5f0e6, #d46a6a);
 }
 
 @font-face {

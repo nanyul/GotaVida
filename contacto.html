@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <!-- HEARDER  -->
     <header class="site-header">
         <div class="header-inner">
             <div class="brand">
@@ -23,35 +24,41 @@
                     <img class="brand-logo" src="img/inicio/LogoGota.png" alt="Gota de Vida logo">
                 </a>
             </div>
-            
+
             <!-- Menú hamburguesa -->
             <button class="hamburger-btn" aria-label="Menú" id="hamburger-btn">
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
                 <span class="hamburger-line"></span>
             </button>
-            
+
             <nav class="main-nav" aria-label="Principal" id="main-nav">
                 <ul class="menu-items">
                     <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="index.html" >INICIO</a></li>
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="index.html">INICIO</a></li>
                     <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">CAMPAÑAS</a></li>
-                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">ALERTAS</a></li>
-                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">SEGUMIENTO</a>
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="centros.html">CAMPAÑAS</a>
                     </li>
-                    <button class="heart-btn" aria-label="Registro">
-                        <img src="img/inicio/corazon.png" alt="Corazón" class="corazon-icon">
-                        <span class="texto-corazon">Registro</span>
-                    </button>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="alertas.html">ALERTAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a
+                            href="seguimiento.html">SEGUIMIENTO</a>
+                    </li>
+                    <li class="menu-corazon">
+                        <a href="donante.html">
+                            <button class="heart-btn" aria-label="Registro">
+                                <img src="img/inicio/corazon.png" alt="Corazón" class="corazon-icon">
+                                <span class="texto-corazon">Registro</span>
+                            </button>
+                        </a>
                     </li>
                     <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="educacion.html">EDUCACIÓN</a>
                     </li>
                     <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="contacto.html" class="active">CONTACTO</a>
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="contacto.html"
+                            class="active">CONTACTO</a>
                     </li>
                     <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">Acerca De</a>
@@ -201,10 +208,11 @@
     <script src="js/interacciones.js"></script>
     <script src="js/menu-hamburguesa.js"></script>
     <!-- FOOTER -->
+       <!-- FOOTER -->
     <footer class="bg-[var(--azul)] text-[var(--beige)] py-10 mt-14">
         <div class="max-w-[1300px] mx-auto flex flex-wrap justify-between items-start gap-10">
             <div>
-                <img src="img/inicio/LogoGota.png" class="w-20 mb-2">
+                <img src="img/logo.png" class="w-20 mb-2">
                 <p class="font-semibold">Donadores con corazón</p>
             </div>
 
@@ -212,15 +220,23 @@
                 <a class="hover:text-[var(--rojo-rubi)] transition" href="index.html">Inicio</a>
                 <a class="hover:text-[var(--rojo-rubi)] transition" href="centros.html">Campañas</a>
                 <a class="hover:text-[var(--rojo-rubi)] transition" href="alertas.html">Alertas</a>
-                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Educación</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="educacion.html">Educación</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="seguimiento.html">Seguimiento</a>
                 <a class="hover:text-[var(--rojo-rubi)] transition" href="contacto.html">Contacto</a>
                 <a class="hover:text-[var(--rojo-rubi)] transition" href="acercade.html">Acerca De</a>
             </div>
 
             <div class="flex gap-4">
-                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
-                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
-                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+
+                <a href="https://www.instagram.com/banco_nacional_desangre_ccss/?hl=es target=" _blank">
+                    <img class="w-7 invert hover:invert-0 hover:scale-110 transition"
+                        src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+                </a>
+
+                <a href="https://www.facebook.com/p/Banco-Nacional-de-Sangre-CCSS-100064579800357/" target="_blank">
+                    <img class="w-7 invert hover:invert-0 hover:scale-110 transition"
+                        src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+                </a>
             </div>
         </div>
 
@@ -229,6 +245,9 @@
         </p>
     </footer>
 
+    <script src="js/notificaciones.js"></script>
+    <script src="js/localStorage.js"></script>
+    <script src="js/centros.js"></script>
     <script src="js/contacto.js"></script>
     <script src="js/interacciones.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
