@@ -21,35 +21,37 @@
             <div class="brand">
                 <!-- Logo animado y clickeable -->
                 <a href="index.html" class="logo-link">
-                    <img class="brand-logo" src="img/LogoGota.png" alt="Gota de Vida logo">
+                    <img class="brand-logo" src="img/inicio/LogoGota.png" alt="Gota de Vida logo">
                 </a>
             </div>
             <nav class="main-nav" aria-label="Principal">
                 <ul class="menu-items">
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="index.html">INICIO</a></li>
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="#">CAMPAÑAS</a></li>
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="#">ALERTAS</a></li>
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">PERFIL</a></li>
-                    <li class="menu-corazon">
-                        <button class="heart-btn" aria-label="Registrar">
-                            <img src="img/corazon.png" alt="Corazón" class="corazon-icon">
-                            <span class="texto-corazon">Registrar</span>
-                        </button>
-                    </li>
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">SEGUMIENTO</a>
                     </li>
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
-                                alt="Electrocardiograma" class="ecg-icon"></span><a href="#">EDUCACIÓN</a></li>
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                    <button class="heart-btn" aria-label="Registro">
+                        <img src="img/inicio/corazon.png" alt="Corazón" class="corazon-icon">
+                        <span class="texto-corazon">Registro</span>
+                    </button>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="educacion.html">EDUCACIÓN</a>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="contacto.html">CONTACTO</a>
                     </li>
-                    <li class="menu-item"><span class="pulse"><img src="img/electrocardiograma.png"
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
                                 alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">Acerca De</a>
+                    </li>
+                    <li class="menu-item">
+                        <spa class="pulse"><img src="img/inicio/electrocardiograma.png" alt="Electrocardiograma"
+                                class="ecg-icon"></spa>
                     </li>
                 </ul>
             </nav>
@@ -82,6 +84,35 @@
 
     <script type="module" src="js/juegosangre.js"></script>
     <script type="module" src="js/cuidados.js"></script>
+
+    <!-- FOOTER -->
+    <footer class="bg-[var(--azul)] text-[var(--beige)] py-10 mt-14">
+        <div class="max-w-[1300px] mx-auto flex flex-wrap justify-between items-start gap-10">
+            <div>
+                <img src="img/inicio/LogoGota.png" class="w-20 mb-2">
+                <p class="font-semibold">Donadores con corazón</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="index.html">Inicio</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="centros.html">Campañas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="alertas.html">Alertas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="#">Educación</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="contacto.html">Contacto</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="acercade.html">Acerca De</a>
+            </div>
+
+            <div class="flex gap-4">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+                <img class="w-7 invert hover:invert-0 hover:scale-110 transition" src="">
+            </div>
+        </div>
+
+        <p class="text-center mt-6 opacity-80 text-[14px]">
+            © 2025 Una Gota de Vida — Todos los derechos reservados.
+        </p>
+    </footer>
 </body>
 
 </html>

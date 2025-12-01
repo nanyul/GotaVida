@@ -268,7 +268,7 @@ body {
 }
 
 /* Responsive adjustments */
-@media (max-width:900px) {
+@media (max-width: 900px) {
     .header-inner {
         padding: 0 12px
     }
@@ -287,7 +287,73 @@ body {
     }
 }
 
-@media (max-width:640px) {
+@media (max-width: 800px) {
+    .brand-logo {
+        width: 80px
+    }
+
+    .menu-items {
+        gap: 8px;
+        padding: 8px 14px
+    }
+
+    .menu-items .menu-item {
+        font-size: 11px
+    }
+
+    .pulse .ecg-icon {
+        width: 30px
+    }
+
+    .heart-btn {
+        width: 85px;
+        height: 58px
+    }
+
+    .heart-btn img {
+        width: 350px;
+        height: 85px
+    }
+
+    .texto-corazon {
+        font-size: 9px
+    }
+}
+
+@media (max-width: 720px) {
+    .brand-logo {
+        width: 75px
+    }
+
+    .menu-items {
+        gap: 6px;
+        padding: 6px 12px
+    }
+
+    .menu-items .menu-item {
+        font-size: 10px
+    }
+
+    .pulse .ecg-icon {
+        width: 28px
+    }
+
+    .heart-btn {
+        width: 80px;
+        height: 54px
+    }
+
+    .heart-btn img {
+        width: 320px;
+        height: 80px
+    }
+
+    .texto-corazon {
+        font-size: 8.5px
+    }
+}
+
+@media (max-width: 640px) {
     .header-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -474,8 +540,8 @@ body {
     position: absolute;
     left: 80px;
     bottom: 32px;
-    width: 440px;
-    height: auto;
+    width: 340px;
+    height: 340px;
     max-width: 40vw;
     z-index: 2;
     margin-left: 100px;
@@ -614,6 +680,348 @@ body {
 
 .hero-btn:hover {
     background: #69021E;
+}
+
+/* Responsive para hero-section */
+@media (max-width: 1400px) {
+    .hero-gota {
+        width: 280px;
+        left: 40px;
+        margin-left: 60px;
+    }
+
+    .hero-coagulos {
+        width: 360px;
+        left: 120px;
+        bottom: 70px;
+    }
+
+    .hero-dialog {
+        left: 180px;
+        top: 120px;
+        font-size: 1.15rem;
+        padding: 14px 24px;
+        margin-left: 40px;
+        max-width: 280px;
+    }
+
+    .hero-title .script:first-child {
+        font-size: 3.2rem;
+        margin-left: 520px;
+    }
+
+    .hero-title .linea2 .script {
+        font-size: 3.2rem;
+    }
+
+    .hero-bolsa {
+        width: 120px;
+    }
+
+    .hero-message {
+        font-size: 2.3rem;
+        margin-left: 440px;
+    }
+
+    .hero-btn {
+        font-size: 1.85rem;
+        margin-left: 440px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hero-gota {
+        width: 240px;
+        height: 240px;
+        left: 30px;
+        margin-left: 40px;
+    }
+
+    .hero-coagulos {
+        width: 320px;
+        left: 100px;
+        bottom: 60px;
+    }
+
+    .hero-dialog {
+        left: 150px;
+        top: 105px;
+        font-size: 1.05rem;
+        padding: 12px 20px;
+        margin-left: 30px;
+        max-width: 260px;
+    }
+
+    .hero-title .script:first-child {
+        font-size: 2.8rem;
+        margin-left: 420px;
+    }
+
+    .hero-title .linea2 .script {
+        font-size: 2.8rem;
+    }
+
+    .hero-title .linea2 {
+        margin-left: 60px;
+        margin-top: -7.5rem;
+    }
+
+    .hero-bolsa {
+        width: 105px;
+    }
+
+    .hero-message {
+        font-size: 2rem;
+        margin-left: 360px;
+    }
+
+    .hero-btn {
+        font-size: 1.65rem;
+        margin-left: 360px;
+        padding: 10px 24px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-gota {
+        width: 200px;
+        height: 200px;
+        left: 20px;
+        margin-left: 30px;
+    }
+
+    .hero-coagulos {
+        width: 280px;
+        left: 80px;
+        bottom: 50px;
+    }
+
+    .hero-dialog {
+        left: 120px;
+        top: 90px;
+        font-size: 0.95rem;
+        padding: 10px 16px;
+        margin-left: 20px;
+        max-width: 230px;
+    }
+
+    .hero-title .script:first-child {
+        font-size: 2.5rem;
+        margin-left: 340px;
+    }
+
+    .hero-title .linea2 .script {
+        font-size: 2.5rem;
+    }
+
+    .hero-title .linea2 {
+        margin-left: 50px;
+        margin-top: -7rem;
+    }
+
+    .hero-bolsa {
+        width: 95px;
+    }
+
+    .hero-message {
+        font-size: 1.8rem;
+        margin-left: 300px;
+    }
+
+    .hero-btn {
+        font-size: 1.5rem;
+        margin-left: 300px;
+        padding: 10px 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 380px;
+        padding: 36px 0 32px 0;
+    }
+
+    .hero-gota {
+        width: 160px;
+        height: 160px;
+        left: 15px;
+        margin-left: 20px;
+    }
+
+    .hero-coagulos {
+        width: 230px;
+        left: 60px;
+        bottom: 40px;
+    }
+
+    .hero-dialog {
+        left: 95px;
+        top: 80px;
+        font-size: 0.85rem;
+        padding: 9px 14px;
+        margin-left: 15px;
+        max-width: 190px;
+    }
+
+    .hero-title .script:first-child {
+        font-size: 2.1rem;
+        margin-left: 260px;
+        margin-top: 20px;
+    }
+
+    .hero-title .linea2 .script {
+        font-size: 2.1rem;
+    }
+
+    .hero-title .linea2 {
+        margin-left: 40px;
+        margin-top: -6rem;
+    }
+
+    .hero-bolsa {
+        width: 80px;
+        margin-bottom: -15px;
+        top: 12px;
+    }
+
+    .hero-message {
+        font-size: 1.5rem;
+        margin-left: 220px;
+        margin-top: 14px;
+    }
+
+    .hero-btn {
+        font-size: 1.3rem;
+        margin-left: 220px;
+        padding: 9px 20px;
+        margin-top: 24px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 320px;
+        padding: 28px 0 24px 0;
+    }
+
+    .hero-gota {
+        width: 130px;
+        height: 130px;
+        left: 10px;
+        margin-left: 10px;
+    }
+
+    .hero-coagulos {
+        width: 190px;
+        left: 45px;
+        bottom: 32px;
+    }
+
+    .hero-dialog {
+        left: 70px;
+        top: 70px;
+        font-size: 0.75rem;
+        padding: 7px 12px;
+        max-width: 180px;
+    }
+
+    .hero-title .script:first-child {
+        font-size: 1.8rem;
+        margin-left: 200px;
+        margin-top: 15px;
+    }
+
+    .hero-title .linea2 .script {
+        font-size: 1.8rem;
+    }
+
+    .hero-title .linea2 {
+        margin-left: 30px;
+        margin-top: -5rem;
+    }
+
+    .hero-bolsa {
+        width: 65px;
+        margin-bottom: -12px;
+        top: 10px;
+    }
+
+    .hero-message {
+        font-size: 1.25rem;
+        margin-left: 170px;
+        margin-top: 12px;
+    }
+
+    .hero-btn {
+        font-size: 1.1rem;
+        margin-left: 170px;
+        padding: 8px 18px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 280px;
+        padding: 24px 0 20px 0;
+    }
+
+    .hero-gota {
+        width: 100px;
+        height: 100px;
+        left: 5px;
+        margin-left: 5px;
+    }
+
+
+    .hero-coagulos {
+        width: 160px;
+        left: 35px;
+        bottom: 28px;
+    }
+
+    .hero-dialog {
+        left: 55px;
+        top: 65px;
+        font-size: 0.65rem;
+        padding: 6px 10px;
+        margin-left: 5px;
+        max-width: 140px;
+    }
+
+    .hero-title .script:first-child {
+        font-size: 1.5rem;
+        margin-left: 160px;
+        margin-top: 12px;
+    }
+
+    .hero-title .linea2 .script {
+        font-size: 1.5rem;
+    }
+
+    .hero-title .linea2 {
+        margin-left: 25px;
+        margin-top: -4rem;
+    }
+
+    .hero-bolsa {
+        width: 55px;
+        margin-bottom: -10px;
+        top: 8px;
+    }
+
+    .hero-message {
+        font-size: 1.05rem;
+        margin-left: 140px;
+        margin-top: 10px;
+    }
+
+    .hero-btn {
+        font-size: 0.95rem;
+        margin-left: 140px;
+        padding: 7px 16px;
+        margin-top: 16px;
+    }
 }
 
 
@@ -1366,22 +1774,25 @@ body {
 .campanias-centros {
     background: linear-gradient(135deg, var(--azul), #1a4b5c);
     justify-content: center;
+    align-items: center;
 }
 
 
 .mapa-container {
     margin: 15px 0;
     text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .mapa-imagen {
-    width: 900px;
     max-width: 270px;
-    justify-content: center;
+    width: 100%;
     height: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    margin-left: 34px;
-    margin-bottom: 39px;
+    margin: 0 auto 39px auto;
+    display: block;
 }
 
 
@@ -1508,10 +1919,155 @@ body {
 }
 
 /* Responsive para recuadros */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+    .donaciones-counter {
+        width: 80%;
+        margin-right: 100px;
+        padding: 25px;
+    }
+
+    .donaciones-mensaje {
+        font-size: 1.9rem;
+    }
+
+    .donaciones-total {
+        font-size: 1.6rem;
+    }
+
+    .elementos-container {
+        right: 30px;
+        top: 60px;
+    }
+
+    .elementos-imagen {
+        width: 80px;
+    }
+
+    .punno-container {
+        left: 30px;
+        top: 20px;
+    }
+
+    .punno-imagen {
+        width: 70px;
+    }
+
     .recuadros-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        width: 700px;
+        gap: 28px;
+    }
+
+    .recuadro {
+        min-height: 350px;
+        padding: 24px 20px 20px 20px;
+    }
+
+    .recuadro-title {
+        font-size: 1.25rem;
+    }
+
+    .recuadro-descripcion {
+        font-size: 0.95rem;
+    }
+
+    .recuadro-btn {
+        font-size: 1.05rem;
+        padding: 12px 0;
+    }
+
+    .mapa-imagen {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .donaciones-counter {
+        width: 85%;
+        margin-right: 60px;
+        padding: 22px;
+    }
+
+    .donaciones-mensaje {
+        font-size: 1.7rem;
+    }
+
+    .donaciones-total {
+        font-size: 1.5rem;
+    }
+
+    .elementos-container {
+        right: 25px;
+        top: 55px;
+    }
+
+    .elementos-imagen {
+        width: 70px;
+    }
+
+    .punno-container {
+        left: 25px;
+        top: 25px;
+    }
+
+    .punno-imagen {
+        width: 65px;
+    }
+
+    .recuadros-grid {
+        width: 600px;
+        gap: 24px;
+    }
+
+    .recuadro {
+        min-height: 340px;
+        padding: 22px 18px 18px 18px;
+    }
+
+    .recuadro-title {
+        font-size: 1.2rem;
+    }
+
+    .recuadro-descripcion {
+        font-size: 0.9rem;
+        max-width: 260px;
+    }
+
+    .recuadro-beneficios li {
+        font-size: 1.1rem;
+    }
+
+    .mapa-imagen {
+        max-width: 240px;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .corazonredondo-imagen {
+        width: 55px;
+    }
+
+    .gotasangre-imagen {
+        width: 55px;
+    }
+
+    .manocorazon-imagen {
+        width: 52px;
+        margin-left: 85px;
+    }
+}
+
+@media (max-width: 768px) {
+    .recuadros-section {
+        padding: 50px 20px;
+    }
+
+    .donaciones-counter {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 20px;
     }
 
     .donaciones-mensaje {
@@ -1519,16 +2075,311 @@ body {
     }
 
     .donaciones-total {
-        font-size: 2rem;
+        font-size: 1.3rem;
+    }
+
+    .elementos-container {
+        right: 20px;
+        top: 50px;
+    }
+
+    .elementos-imagen {
+        width: 60px;
+    }
+
+    .punno-container {
+        left: 20px;
+        top: 20px;
+    }
+
+    .punno-imagen {
+        width: 55px;
+    }
+
+    .recuadros-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+        max-width: 500px;
     }
 
     .recuadro {
         padding: 20px;
+        min-height: 320px;
     }
 
     .recuadro-title {
         font-size: 1.2rem;
     }
+
+    .recuadro-descripcion {
+        font-size: 1rem;
+        max-width: 100%;
+    }
+
+    .recuadro-btn {
+        font-size: 1rem;
+        padding: 11px 0;
+    }
+
+    .recuadro-beneficios li {
+        font-size: 1.05rem;
+    }
+
+    .mapa-imagen {
+        max-width: 220px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        display: block;
+    }
+
+    .corazonredondo-imagen,
+    .gotasangre-imagen {
+        width: 50px;
+    }
+
+    .manocorazon-imagen {
+        width: 48px;
+        margin-left: 60px;
+    }
+
+    .alerta-urgente {
+        padding: 15px;
+    }
+
+    .alerta-descripcion {
+        font-size: 1rem;
+    }
+
+    .estadisticas-testimonios {
+        min-height: 220px !important;
+    }
 }
 
-/*FOOTER*/
+@media (max-width: 576px) {
+    .recuadros-section {
+        padding: 40px 15px;
+    }
+
+    .donaciones-counter {
+        width: 95%;
+        padding: 18px 15px;
+        margin-bottom: 25px;
+    }
+
+    .donaciones-mensaje {
+        font-size: 1.3rem;
+    }
+
+    .donaciones-total {
+        font-size: 1.15rem;
+    }
+
+    .elementos-container {
+        right: 15px;
+        top: 45px;
+    }
+
+    .elementos-imagen {
+        width: 50px;
+    }
+
+    .punno-container {
+        left: 15px;
+        top: 18px;
+    }
+
+    .punno-imagen {
+        width: 48px;
+    }
+
+    .recuadros-grid {
+        max-width: 100%;
+        gap: 18px;
+    }
+
+    .recuadro {
+        padding: 18px 16px;
+        min-height: 300px;
+    }
+
+    .recuadro-title {
+        font-size: 1.15rem;
+        margin-bottom: 12px;
+    }
+
+    .recuadro-descripcion {
+        font-size: 0.95rem;
+    }
+
+    .recuadro-btn {
+        font-size: 0.95rem;
+        padding: 10px 0;
+    }
+
+    .recuadro-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .recuadro-beneficios li {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    .mapa-imagen {
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 25px;
+        display: block;
+    }
+
+    .corazonredondo-imagen,
+    .gotasangre-imagen {
+        width: 45px;
+    }
+
+    .manocorazon-imagen {
+        width: 44px;
+        margin-left: 50px;
+    }
+
+    .alerta-urgente {
+        padding: 12px;
+    }
+
+    .alerta-descripcion {
+        font-size: 0.95rem;
+    }
+
+    .alerta-detalle {
+        font-size: 0.85rem;
+    }
+
+    .estadisticas-testimonios {
+        min-height: 200px !important;
+        padding: 14px 16px 10px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .recuadros-section {
+        padding: 35px 12px;
+    }
+
+    .donaciones-counter {
+        width: 100%;
+        padding: 15px 12px;
+        margin-bottom: 20px;
+    }
+
+    .donaciones-mensaje {
+        font-size: 1.1rem;
+    }
+
+    .donaciones-total {
+        font-size: 1rem;
+    }
+
+    .elementos-container {
+        right: 10px;
+        top: 40px;
+    }
+
+    .elementos-imagen {
+        width: 42px;
+    }
+
+    .punno-container {
+        left: 10px;
+        top: -25px;
+    }
+
+    .punno-imagen {
+        width: 40px;
+    }
+
+    .recuadros-grid {
+        gap: 15px;
+    }
+
+    .recuadro {
+        padding: 16px 14px;
+        min-height: 280px;
+    }
+
+    .recuadro-title {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .recuadro-descripcion {
+        font-size: 0.9rem;
+    }
+
+    .recuadro-btn {
+        font-size: 0.9rem;
+        padding: 9px 0;
+    }
+
+    .recuadro-icon {
+        width: 38px;
+        height: 38px;
+        margin-bottom: 8px;
+    }
+
+    .recuadro-beneficios li {
+        font-size: 0.95rem;
+        margin-bottom: 5px;
+    }
+
+    .registro-donantes {
+        font-size: 1.2rem;
+    }
+
+    .mapa-imagen {
+        max-width: 180px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        display: block;
+    }
+
+    .corazonredondo-imagen,
+    .gotasangre-imagen {
+        width: 40px;
+        margin-left: 8px;
+    }
+
+    .manocorazon-imagen {
+        width: 40px;
+        margin-left: 40px;
+    }
+
+    .alerta-urgente {
+        padding: 10px;
+    }
+
+    .alerta-descripcion {
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    .alerta-detalle {
+        font-size: 0.8rem;
+    }
+
+    .alertas-notificaciones,
+    .seccion-educativa,
+    .reconocimiento-perfil {
+        min-height: 140px !important;
+        padding: 14px 16px 10px 16px;
+    }
+
+    .estadisticas-testimonios {
+        min-height: 180px !important;
+        padding: 12px 14px 10px 14px;
+    }
+}

@@ -1,6 +1,5 @@
 // Test de Donación de Sangre - Modal emergente
-
-// Configuración de preguntas del test
+// preguntas del test
 const testPreguntas = [
     {
         id: 'edad',
@@ -67,7 +66,7 @@ const testPreguntas = [
     }
 ];
 
-// Lógica de evaluación del test
+
 function evaluarTest(respuestas) {
     // Verificar edad
     if (respuestas.edad === 'menor18' || respuestas.edad === 'mayor65') {
