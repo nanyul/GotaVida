@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Centros y Campañas | Gota de Vida</title>
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/acercade.css">
+    <link rel="stylesheet" href="css/centros.css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="img/inicio/gota.png" type="image/png">
+</head>
+
+<body>
+
+     <!-- HEARDER  -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <!-- Logo animado y clickeable -->
+                <a href="index.html" class="logo-link">
+                    <img class="brand-logo" src="img/inicio/LogoGota.png" alt="Gota de Vida logo">
+                </a>
+            </div>
+            
+            <!-- Botón hamburguesa -->
+            <button class="hamburger-btn" aria-label="Menú" id="hamburger-btn">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <nav class="main-nav" aria-label="Principal" id="main-nav">
+                <ul class="menu-items">
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="index.html" class="active">INICIO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="centros.html">CAMPAÑAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="alertas.html">ALERTAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="seguimiento.html">SEGUMIENTO</a>
+                    </li>
+                    <button class="heart-btn" aria-label="Registro">
+                        <img src="img/inicio/corazon.png" alt="Corazón" class="corazon-icon">
+                        <span class="texto-corazon">Registro</span>
+                    </button>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="educacion.html">EDUCACIÓN</a>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="contacto.html">CONTACTO</a>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">Acerca De</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MINI PERFIL -->
+    <div id="miniPerfil" class="fixed bottom-5 right-5 bg-white rounded-2xl shadow-xl px-4 py-3 border hidden
+        flex items-center gap-3 cursor-pointer select-none"
+        style="border-color: var(--rojo-rubi);color:var(--burdeos);z-index:999;">
+
+        <img id="miniAvatar" src="https://cdn-icons-png.flaticon.com/512/5073/5073211.png"
+            class="w-12 h-12 rounded-full border border-[var(--rojo-rubi)]">
+
+        <div class="flex flex-col">
+            <span id="miniNombre" class="font-bold text-sm"></span>
+            <span id="miniDescripcion" class="text-[12px] opacity-70"></span>
+        </div>
+    </div>
+
+    <!-- MINI MENU -->
+    <div id="miniMenu"
+        class="hidden fixed bottom-24 right-5 bg-white border rounded-xl shadow-xl w-48 p-3 text-[var(--burdeos)] z-50">
+
+        <p id="btnVerPerfil" class="menuItem py-2 px-3 hover:bg-[var(--beige)] rounded-lg cursor-pointer">Mi perfil</p>
+        <p id="btnNoti" class="menuItem py-2 px-3 hover:bg-[var(--beige)] rounded-lg cursor-pointer relative">Notificaciones<span id="puntoNotificacionMini" class="absolute top-1 right-2 w-3 h-3 bg-red-500 rounded-full hidden"></span></p>
+        <p id="cerrarSesion" class="menuItem py-2 px-3 hover:bg-[var(--beige)] rounded-lg cursor-pointer text-red-500">Cerrar sesión</p>
+    </div>
+
+    <!-- MINI LOGIN -->
+    <div id="loginMini" class="fixed bottom-24 right-5 bg-white border rounded-xl shadow-xl p-5 w-64 hidden z-50">
+
+        <h3 class="text-lg font-bold mb-3 text-[var(--burdeos)]">Iniciar sesión</h3>
+
+        <label class="text-sm font-semibold text-[var(--azul)]">Cédula</label>
+        <input id="loginCedula" type="text" class="w-full p-2 border rounded-lg mb-3" placeholder="001234567">
+
+        <button id="btnLoginMini" class="w-full bg-[var(--rojo-rubi)] text-white p-2 rounded-lg font-semibold">
+            Entrar
+        </button>
+
+        <p id="loginError" class="text-red-500 text-sm mt-2 hidden">Cédula no encontrada</p>
+    </div>
+
+
+
+    <main class="max-w-5xl mx-auto mt-10 px-4">
+        <h1 class="text-3xl font-bold text-[var(--negro)] text-center font-[Arturo] mb-6">
+            Campañas y Centros Cercanos
+        </h1>
+
+        <!-- FILTRO -->
+        <div class="flex items-center gap-4 mb-4">
+            <label class="font-bold font-[Arturo] text-[var(--burdeos)]">
+                Radio (km): <span id="radioText">5</span>
+            </label>
+
+            <input id="radioInput" type="number" value="5" min="1"
+                class="px-3 py-1 rounded border border-gray-300 w-20">
+
+            <button id="btnAplicarRadio"
+                class="px-4 py-1 rounded bg-[var(--rojo-rubi)] text-white font-bold font-[Arturo]">
+                Aplicar
+            </button>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4 mb-4">
+
+            <!-- FILTRO TIPO -->
+            <select id="filtroTipo" class="px-3 py-1 border rounded-lg text-[var(--burdeos)]">
+                <option value="todos">Todos los tipos</option>
+                <option value="sangre">Sangre total</option>
+                <option value="plasma">Plasma</option>
+                <option value="plaquetas">Plaquetas</option>
+            </select>
+
+            <!-- ORDENAR -->
+            <select id="filtroOrden" class="px-3 py-1 border rounded-lg text-[var(--burdeos)]">
+                <option value="distancia">Ordenar por distancia</option>
+                <option value="fecha">Ordenar por fecha</option>
+                <option value="nombre">Ordenar por nombre</option>
+            </select>
+
+        </div>
+
+        <!-- MAPA -->
+        <div id="map"></div>
+
+        <!-- LISTA -->
+        <h2 class="text-2xl font-bold mt-8 mb-3 font-[Arturo] text-[var(--negro)]">
+            Campañas Disponibles
+        </h2>
+        <p id="contadorCampanas" class="text-[var(--burdeos)] font-semibold mb-3"></p>
+        <div id="listaCampanas" class="space-y-4 mb-10"></div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[var(--azul)] text-[var(--beige)] py-10 mt-14">
+        <div class="max-w-[1300px] mx-auto flex flex-wrap justify-between items-start gap-10">
+            <div>
+                <img src="img/logo.png" class="w-20 mb-2">
+                <p class="font-semibold">Donadores con corazón</p>
+            </div>
+
+            <div class="flex flex-col gap-2">
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="index.html">Inicio</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="centros.html">Campañas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="alertas.html">Alertas</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="educacion.html">Educación</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="seguimiento.html">Seguimiento</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="contacto.html">Contacto</a>
+                <a class="hover:text-[var(--rojo-rubi)] transition" href="acercade.html">Acerca De</a>
+            </div>
+
+            <div class="flex gap-4">
+
+                <a href="https://www.instagram.com/banco_nacional_desangre_ccss/?hl=es target="_blank">
+                    <img class="w-7 invert hover:invert-0 hover:scale-110 transition"
+                        src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+                </a>
+
+                <a href="https://www.facebook.com/p/Banco-Nacional-de-Sangre-CCSS-100064579800357/" target="_blank">
+                    <img class="w-7 invert hover:invert-0 hover:scale-110 transition"
+                        src="https://cdn-icons-png.flaticon.com/512/733/733547.png">
+                </a>
+            </div>
+        </div>
+
+        <p class="text-center mt-6 opacity-80 text-[14px]">
+            © 2025 Una Gota de Vida — Todos los derechos reservados.
+        </p>
+    </footer>
+
+    <script src="js/notificaciones.js"></script>
+    <script src="js/localStorage.js"></script>
+    <script src="js/centros.js"></script>
+
+</body>
+</html>

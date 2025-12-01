@@ -1,0 +1,26 @@
+{
+    "info_proyecto": {
+        "nombre": "Una Gota de Vida",
+        "descripcion": "Proyecto académico creado para promover la donación de sangre, conectar donantes y difundir campañas de solidaridad.",
+        "institucion": "Universidad Tecnica Nacional – Ingeniería del Software",
+        "curso": "Proyecto de Desarrollo Web",
+        "anio": 2025
+    },
+
+    "autores": [
+        {
+            "nombre": "Nancy Yuliana Araya Norori",
+            "carrera": "Ingeniería del Software",
+            "correo": "nyarayanorori@gmail.com",
+            "imagen": "img/Nancy.jpg",
+            "descripcion": "Estudiante de Ingeniería con interés en el desarrollo web y el voluntariado social."
+        },
+        {
+            "nombre": "Keylin Enid Rojas Obando",
+            "carrera": "Ingeniería del Software",
+            "correo": "keylinenid2004@gmail.com",
+            "imagen": "img/Keylin.jpg",
+            "descripcion": "Apasionada por el diseño web y la creación de interfaces que generen impacto positivo."
+        }
+    ]
+}
