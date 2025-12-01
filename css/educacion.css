@@ -1,0 +1,1010 @@
+.beneficios-de-donar-section {
+    background: linear-gradient(to bottom, #f5f0e6, #d46a6a);
+    padding: 30px 20px;
+    min-height: 100vh;
+}
+
+.beneficios-de-donar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+.beneficios-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.beneficios-left {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.beneficios-main-title {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: #030206;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.beneficios-subtitle {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    background: #69021E;
+    color: #F7F3DA;
+    display: inline-block;
+    padding: 20px 80px;
+    border-radius: 60px;
+    margin: 0;
+    box-shadow: 0 8px 20px rgba(105, 2, 30, 0.4);
+}
+
+.beneficios-lista {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 30px 50px;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Primeros 3 beneficios - columna izquierda */
+.beneficio-btn:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.beneficio-btn:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+}
+
+.beneficio-btn:nth-child(3) {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: end;
+}
+
+/* Últimos 3 beneficios - columna derecha */
+.beneficio-btn:nth-child(4) {
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.beneficio-btn:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: start;
+}
+
+.beneficio-btn:nth-child(6) {
+    grid-column: 3;
+    grid-row: 3;
+    justify-self: start;
+}
+
+/* Imagen en el centro */
+.beneficios-right {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.beneficio-btn {
+    background: #003049;
+    color: #F7F3DA;
+    border: none;
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 48, 73, 0.3);
+    text-align: center;
+    line-height: 1.4;
+    max-width: 450px;
+    white-space: normal;
+}
+
+.beneficio-btn:hover {
+    background: #AA0235;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(170, 2, 53, 0.4);
+}
+
+/* Imagen */
+.beneficios-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .beneficios-lista {
+        gap: 25px 40px;
+    }
+
+    .beneficio-btn {
+        font-size: 16px;
+        padding: 16px 35px;
+        max-width: 400px;
+    }
+
+    .beneficios-subtitle {
+        font-size: 25px;
+        padding: 10px 30px;
+    }
+
+    .beneficios-main-title {
+        font-size: 48px;
+    }
+
+    .beneficios-image {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 992px) {
+    .beneficios-lista {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+
+    .beneficio-btn:nth-child(1),
+    .beneficio-btn:nth-child(2),
+    .beneficio-btn:nth-child(3),
+    .beneficio-btn:nth-child(4),
+    .beneficio-btn:nth-child(5),
+    .beneficio-btn:nth-child(6) {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: center;
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .beneficios-right {
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 20px;
+    }
+
+    .beneficios-image {
+        max-width: 350px;
+    }
+
+    .beneficios-left {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 640px) {
+    .beneficios-de-donar-section {
+        padding: 40px 15px;
+    }
+
+    .beneficios-main-title {
+        font-size: 36px;
+    }
+
+    .beneficios-subtitle {
+        font-size: 28px;
+        padding: 15px 40px;
+    }
+
+    .beneficio-btn {
+        font-size: 15px;
+        padding: 14px 30px;
+    }
+
+    .beneficios-lista {
+        gap: 15px;
+    }
+
+    .beneficios-left {
+        margin-bottom: 30px;
+    }
+}
+
+/* juego */
+
+.juego-sangre-section {
+    background: var(--azul, #003049);
+    padding: 50px 15px;
+    min-height: 60vh;
+}
+
+.juego-sangre-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.juego-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.juego-title {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--beige, #F7F3DA);
+    margin: 0;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.juego-subtitle {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 18px;
+    color: var(--beige, #F7F3DA);
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.juego-area {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    width: 100%;
+    max-width: 950px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+.componentes-disponibles {
+    display: flex;
+
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(247, 243, 218, 0.1);
+    border-radius: 20px;
+    min-height: 150px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.componente-card {
+    background: #69021E;
+    border-radius: 15px;
+    padding: 15px 20px;
+    cursor: move;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    min-width: 160px;
+    min-height: 80px;
+}
+
+.componente-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+.componente-card.dragging {
+    opacity: 0.5;
+    transform: rotate(5deg);
+}
+
+.componente-img {
+    width: 200%;
+    max-width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+.componente-nombre {
+    color: var(--beige, #F7F3DA);
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+
+.imagen-central {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 150px;
+}
+
+.sangre-principal-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    display: block;
+}
+
+
+.drop-zone {
+    position: absolute;
+    width: 180px;
+    height: 120px;
+    border: 3px dashed rgba(247, 243, 218, 0.4);
+    border-radius: 15px;
+    background: rgba(0, 48, 73, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.drop-zone.over {
+    background: rgba(170, 2, 53, 0.4);
+    border-color: var(--rojo-rubi, #AA0235);
+    transform: scale(1.05);
+}
+
+.drop-zone.filled {
+    border-style: solid;
+    border-color: rgba(247, 243, 218, 0.6);
+    background: transparent;
+}
+
+.drop-zone.correcta {
+    border-color: #4ade80;
+    background: rgba(74, 222, 128, 0.2);
+}
+
+.drop-zone.incorrecta {
+    border-color: #f87171;
+    background: rgba(248, 113, 113, 0.2);
+}
+
+/* Posiciones de las zonas según la imagen */
+#zona1 {
+    bottom: -120px;
+    left: 2%;
+}
+
+#zona2 {
+    bottom: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#zona3 {
+    bottom: -120px;
+    right: 2%;
+}
+
+.drop-placeholder {
+    color: var(--beige, #F7F3DA);
+    font-size: 48px;
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drop-zone.filled .drop-placeholder {
+    display: none;
+}
+
+
+.drop-zone .componente-card {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+    min-width: auto;
+    min-height: auto;
+}
+
+.drop-zone .componente-card .componente-img {
+    max-width: 120px;
+    width: 100%;
+}
+
+.drop-zone .componente-card .componente-nombre {
+    font-size: 12px;
+}
+
+/* Botón verificar */
+.verificar-btn {
+    background: var(--rojo-rubi, #AA0235);
+    color: var(--beige, #F7F3DA);
+    border: none;
+    padding: 18px 60px;
+    border-radius: 50px;
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(170, 2, 53, 0.4);
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.verificar-btn:hover {
+    background: var(--burdeos, #69021E);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(105, 2, 30, 0.5);
+}
+
+
+.resultado-mensaje {
+    margin-top: 30px;
+    display: none;
+}
+
+.resultado-exito,
+.resultado-parcial {
+    font-family:  sans-serif;
+    font-size: 20px;
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.resultado-exito {
+    background: rgba(74, 222, 128, 0.2);
+    color: #4ade80;
+    border: 2px solid #4ade80;
+}
+
+.resultado-parcial {
+    background: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+    border: 2px solid #fbbf24;
+}
+
+@media (max-width: 1200px) {
+    .juego-area {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .componentes-disponibles {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        min-height: auto;
+    }
+
+    .componente-card {
+        width: calc(33.333% - 12px);
+        min-width: 140px;
+    }
+
+    #zona1, #zona2, #zona3 {
+        width: 140px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .juego-title {
+        font-size: 28px;
+    }
+
+    .juego-subtitle {
+        font-size: 16px;
+    }
+
+    .componente-card {
+        width: calc(50% - 10px);
+    }
+
+    #zona1, #zona2, #zona3 {
+        width: 110px;
+        height: 90px;
+    }
+
+    .drop-zone .componente-card .componente-img {
+        max-width: 45px;
+    }
+
+    .drop-zone .componente-card .componente-nombre {
+        font-size: 9px;
+    }
+
+    .verificar-btn {
+        padding: 12px 35px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 640px) {
+    .juego-sangre-section {
+        padding: 30px 15px;
+    }
+
+    .componentes-disponibles {
+        flex-direction: column;
+        min-height: 50%;
+        padding: 10px;
+        gap: 5px;
+    }
+
+    .componente-card {
+        width: 100%;
+        padding: 8px 12px;
+        min-width: 100px;
+        min-height: 45px;
+        gap: 5px;
+    }
+
+    .componente-img {
+        max-width: 80px;
+        width: 150%;
+    }
+
+    .componente-nombre {
+        font-size: 12px;
+    }
+
+    #zona1 {
+        bottom: -33%;
+        left: 3%;
+    }
+
+    #zona2 {
+        bottom: -33%;
+    }
+
+    #zona3 {
+        bottom: -33%;
+        right: 3%;
+    }
+}
+
+/* mitos */
+
+.mitos-realidad-section {
+    background: linear-gradient(to right, #AA0235 0%, #AA0235 50%, #69021E 50%, #69021E 100%);
+    padding: 40px 20px;
+    min-height: auto;
+}
+
+.mitos-realidad-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.mitos-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mitos-title {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #F7F3DA;
+    margin: 0;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.mitos-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+    align-items: start;
+}
+
+.mitos-column {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.mitos-column-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+}
+
+.mitos-vs-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.vs-image {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    object-fit: contain;
+}
+
+.column-title {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px 35px;
+    border-radius: 50px;
+    margin-bottom: 8px;
+}
+
+.mito-title {
+    background: #003049;
+    color: #F7F3DA;
+}
+
+.realidad-title {
+    background: #F7F3DA;
+    color: #003049;
+}
+
+.mito-card {
+    background: #003049;
+    color: #F7F3DA;
+    padding: 18px 22px;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    min-height: 90px;
+}
+
+.mito-card:hover {
+    transform: translateY(-5px);
+}
+
+.mito-icon {
+    background: #F7F3DA;
+    color: #69021E;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.mito-text {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.realidad-card {
+    background: #F7F3DA;
+    color: #003049;
+    padding: 18px 22px;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    min-height: 90px;
+}
+
+.realidad-card:hover {
+    transform: translateY(-5px);
+}
+
+.realidad-icon {
+    background: #003049;
+    color: #F7F3DA;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.realidad-text {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+@media (max-width: 992px) {
+    .mitos-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .mitos-column-center {
+        padding-top: 0;
+        order: 2;
+    }
+
+    .mitos-column:first-child {
+        order: 1;
+    }
+
+    .mitos-column:last-child {
+        order: 3;
+    }
+
+    .mitos-title {
+        font-size: 42px;
+    }
+
+    .column-title {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    .mitos-realidad-section {
+        padding: 40px 15px;
+    }
+
+    .mitos-title {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .vs-image {
+        max-width: 200px;
+    }
+
+    .mitos-vs-imagen {
+        margin-bottom: 30px;
+    }
+
+    .column-title {
+        font-size: 26px;
+        padding: 12px 30px;
+    }
+
+    .mito-card,
+    .realidad-card {
+        padding: 20px;
+        min-height: 100px;
+    }
+
+    .mito-text,
+    .realidad-text {
+        font-size: 14px;
+    }
+
+    .mito-icon,
+    .realidad-icon {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
+}
+
+/* cuidados al donar sangre */
+.cuidados-donacion-section {
+    background: #F7F3DA;
+    padding: 50px 20px;
+    min-height: auto;
+}
+
+.cuidados-donacion-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cuidados-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cuidados-title {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: #69021E;
+    background: #69021E;
+    color: #F7F3DA;
+    padding: 15px 50px;
+    border-radius: 50px;
+    margin: 0;
+    margin-bottom: 50px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(105, 2, 30, 0.3);
+}
+
+.cuidados-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    width: 100%;
+    max-width: 1100px;
+    align-items: center;
+}
+
+.cuidados-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.cuidado-item {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.cuidado-item:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.cuidado-icon-wrapper {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 3px solid #69021E;
+    background: #F7F3DA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.cuidado-icon {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.cuidado-line {
+    width: 3px;
+    height: 65px;
+    background: #69021E;
+    position: absolute;
+    left: 31px;
+    top: 65px;
+}
+
+.cuidado-item:last-child .cuidado-line {
+    display: none;
+}
+
+
+.cuidado-text {
+    font-family: 'Arturo', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #69021E;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.cuidados-imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cuidados-img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+@media (max-width: 992px) {
+    .cuidados-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .cuidados-imagen {
+        order: -1;
+    }
+
+    .cuidados-img {
+        max-width: 400px;
+    }
+
+    .cuidados-title {
+        font-size: 36px;
+        padding: 12px 40px;
+    }
+
+    .cuidado-text {
+        font-size: 18px;
+    }
+
+    .cuidado-icon-wrapper {
+        width: 70px;
+        height: 70px;
+    }
+
+    .cuidado-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .cuidado-line {
+        left: 34px;
+        height: 70px;
+        top: 70px;
+    }
+}
+
+@media (max-width: 640px) {
+    .cuidados-donacion-section {
+        padding: 40px 15px;
+    }
+
+    .cuidados-title {
+        font-size: 28px;
+        padding: 12px 30px;
+        margin-bottom: 35px;
+    }
+
+    .cuidados-img {
+        max-width: 100%;
+    }
+
+    .cuidado-item {
+        gap: 15px;
+    }
+
+    .cuidado-item:not(:last-child) {
+        margin-bottom: 25px;
+    }
+
+    .cuidado-text {
+        font-size: 16px;
+    }
+
+    .cuidado-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+
+    .cuidado-icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .cuidado-line {
+        left: 29px;
+        height: 60px;
+        top: 60px;
+    }
+}
