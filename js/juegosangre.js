@@ -73,10 +73,15 @@ function initDragAndDrop() {
     const dropZones = document.querySelectorAll('.drop-zone');
     const verificarBtn = document.getElementById('verificar-btn');
 
-    // Eventos para las tarjetas
+    // Eventos para las tarjetas (escritorio)
     cards.forEach(card => {
         card.addEventListener('dragstart', handleDragStart);
         card.addEventListener('dragend', handleDragEnd);
+        
+        // Eventos táctiles para móviles
+        card.addEventListener('touchstart', handleTouchStart, { passive: false });
+        card.addEventListener('touchmove', handleTouchMove, { passive: false });
+        card.addEventListener('touchend', handleTouchEnd, { passive: false });
     });
 
     // Eventos para las zonas de drop
@@ -95,6 +100,8 @@ function initDragAndDrop() {
 
 // Funciones de drag
 let draggedElement = null;
+let touchDraggedElement = null;
+let touchClone = null;
 
 function handleDragStart(e) {
     draggedElement = this;
@@ -156,6 +163,98 @@ function handleDrop(e) {
     }
 
     return false;
+}
+
+// Funciones táctiles para móviles
+function handleTouchStart(e) {
+    e.preventDefault();
+    touchDraggedElement = this;
+    this.classList.add('dragging');
+    
+    // Crear un clon visual para arrastrar
+    touchClone = this.cloneNode(true);
+    touchClone.style.position = 'fixed';
+    touchClone.style.zIndex = '9999';
+    touchClone.style.opacity = '0.8';
+    touchClone.style.pointerEvents = 'none';
+    touchClone.style.width = this.offsetWidth + 'px';
+    touchClone.style.height = this.offsetHeight + 'px';
+    document.body.appendChild(touchClone);
+    
+    // Posicionar el clon en el dedo
+    const touch = e.touches[0];
+    touchClone.style.left = (touch.pageX - this.offsetWidth / 2) + 'px';
+    touchClone.style.top = (touch.pageY - this.offsetHeight / 2) + 'px';
+}
+
+function handleTouchMove(e) {
+    e.preventDefault();
+    
+    if (!touchClone || !touchDraggedElement) return;
+    
+    const touch = e.touches[0];
+    touchClone.style.left = (touch.pageX - touchClone.offsetWidth / 2) + 'px';
+    touchClone.style.top = (touch.pageY - touchClone.offsetHeight / 2) + 'px';
+    
+    // Detectar sobre qué zona está
+    const dropZones = document.querySelectorAll('.drop-zone');
+    dropZones.forEach(zone => zone.classList.remove('over'));
+    
+    const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+    const dropZone = elementBelow?.closest('.drop-zone');
+    
+    if (dropZone) {
+        dropZone.classList.add('over');
+    }
+}
+
+function handleTouchEnd(e) {
+    e.preventDefault();
+    
+    if (!touchDraggedElement) return;
+    
+    touchDraggedElement.classList.remove('dragging');
+    
+    // Obtener la posición final
+    const touch = e.changedTouches[0];
+    const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+    const dropZone = elementBelow?.closest('.drop-zone');
+    
+    // Limpiar clases 'over'
+    document.querySelectorAll('.drop-zone').forEach(zone => zone.classList.remove('over'));
+    
+    if (dropZone) {
+        // Si ya hay algo en esta zona, devolverlo
+        const existingCard = dropZone.querySelector('.componente-card');
+        if (existingCard) {
+            document.querySelector('.componentes-disponibles').appendChild(existingCard);
+        }
+        
+        // Colocar la nueva tarjeta
+        const componenteNombre = touchDraggedElement.getAttribute('data-componente');
+        const zonaId = dropZone.getAttribute('data-zona');
+        
+        // Actualizar estado
+        componentesColocados[zonaId] = componenteNombre;
+        
+        // Mover visualmente
+        dropZone.appendChild(touchDraggedElement);
+        dropZone.classList.add('filled');
+        
+        // Ocultar placeholder
+        const placeholder = dropZone.querySelector('.drop-placeholder');
+        if (placeholder) {
+            placeholder.style.display = 'none';
+        }
+    }
+    
+    // Limpiar el clon
+    if (touchClone && touchClone.parentNode) {
+        touchClone.parentNode.removeChild(touchClone);
+    }
+    
+    touchClone = null;
+    touchDraggedElement = null;
 }
 
 // Verificar respuestas
