@@ -12,6 +12,10 @@ fetch("json/carousel.json")
         slides = document.querySelectorAll('.carousel-slide');
         totalSlides = slides.length;
         startCarousel();
+        
+        // Notificar que el carrusel está listo
+        console.log('Carrusel creado, disparando evento carouselReady');
+        window.dispatchEvent(new Event('carouselReady'));
     })
     .catch(error => {
         console.error('Error loading carousel data:', error);
@@ -19,6 +23,9 @@ fetch("json/carousel.json")
         slides = document.querySelectorAll('.carousel-slide');
         totalSlides = slides.length;
         startCarousel();
+        
+        // Disparar evento incluso si hay error
+        window.dispatchEvent(new Event('carouselReady'));
     });
 
 function createCarouselSlides(slidesData) {
@@ -44,13 +51,17 @@ function createCarouselSlides(slidesData) {
             buttonHoverColor = '#264a6b';
         }
 
+        // Construir el atributo data-action solo para el primer botón
+        const dataAction = index === 0 ? 'data-action="test-donacion"' : '';
+        console.log(`Slide ${index}: dataAction = "${dataAction}"`);
+
         const slideHTML = `
-        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}">
+        <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-100' : 'opacity-0'}" style="z-index: ${index === 0 ? '10' : '1'};">
             <img src="${slideData.image}" class="w-full h-full object-cover" alt="Slide ${index + 1}">
             <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
                 <div class="text-center" style="color: #F7F3DA;">
                     <h2 class="text-4xl font-bold mb-4">${slideData.title}</h2>
-                    <button data-action="test-donacion" style="background-color: ${buttonColor}; color: #F7F3DA; font-weight: bold; padding: 0.75rem 2rem; border-radius: 9999px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='${buttonHoverColor}'" onmouseout="this.style.backgroundColor='${buttonColor}'">
+                    <button ${dataAction} style="background-color: ${buttonColor}; color: #F7F3DA; font-weight: bold; padding: 0.75rem 2rem; border-radius: 9999px; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='${buttonHoverColor}'" onmouseout="this.style.backgroundColor='${buttonColor}'">
                     ${slideData.buttonText}
                     </button>
                 </div>
@@ -59,6 +70,15 @@ function createCarouselSlides(slidesData) {
         `;
         carouselContainer.innerHTML += slideHTML;
     });
+    
+    // Verificar que los botones se crearon correctamente
+    setTimeout(() => {
+        const botonesConDataAction = document.querySelectorAll('[data-action="test-donacion"]');
+        console.log('Botones con data-action encontrados después de crear carrusel:', botonesConDataAction.length);
+        botonesConDataAction.forEach((btn, i) => {
+            console.log(`Botón ${i}:`, btn.getAttribute('data-action'), btn.textContent.trim());
+        });
+    }, 100);
 }
 
 function showSlide(index) {
@@ -66,9 +86,11 @@ function showSlide(index) {
         if (i === index) {
             slide.classList.remove('opacity-0');
             slide.classList.add('opacity-100');
+            slide.style.zIndex = '10'; // Slide visible encima
         } else {
             slide.classList.remove('opacity-100');
             slide.classList.add('opacity-0');
+            slide.style.zIndex = '1'; // Slides ocultos debajo
         }
     });
 }

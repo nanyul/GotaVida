@@ -170,6 +170,8 @@ function crearModalTest() {
 
 // Inicializar el test cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded ejecutado');
+    
     // Crear el modal
     crearModalTest();
 
@@ -181,16 +183,32 @@ document.addEventListener('DOMContentLoaded', function() {
     const mensajeResultado = document.getElementById('mensaje-resultado');
     const cerrarResultadoBtn = document.getElementById('cerrar-resultado');
 
-    // Buscar todos los botones que pueden abrir el test
-    const botonesTest = document.querySelectorAll('[data-action="test-donacion"]');
-    
-    // Agregar evento a cada botón encontrado
-    botonesTest.forEach(boton => {
-        boton.addEventListener('click', function(e) {
+    console.log('Modal encontrado:', modal ? 'SÍ' : 'NO');
+
+    // Usar delegación de eventos para capturar clicks en botones del carrusel
+    // Esto funciona incluso si los botones se crean dinámicamente después
+    document.addEventListener('click', function(e) {
+        console.log('Click detectado en:', e.target.tagName, e.target.textContent.substring(0, 30));
+        
+        // Verificar si el click fue en un botón con data-action="test-donacion"
+        const botonTest = e.target.closest('[data-action="test-donacion"]');
+        
+        if (botonTest) {
+            console.log('✅ Click detectado en botón del test');
+            console.log('Atributo data-action:', botonTest.getAttribute('data-action'));
             e.preventDefault();
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Prevenir scroll del body
-        });
+            e.stopPropagation();
+            
+            if (modal) {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                console.log('✅ Modal abierto');
+            } else {
+                console.error('❌ Modal no encontrado');
+            }
+        } else {
+            console.log('⚠️ Click NO fue en botón con data-action="test-donacion"');
+        }
     });
 
     // Cerrar modal con botón X
