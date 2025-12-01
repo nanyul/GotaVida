@@ -1,14 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contacto-form');
     const mensajeDiv = document.getElementById('form-mensaje');
+    const modal = document.getElementById('modal-confirmacion');
+    const modalDatos = document.getElementById('modal-datos');
+    const cerrarModalBtn = document.getElementById('cerrar-modal');
+    const btnCerrarModal = document.getElementById('btn-cerrar-modal');
 
     // Manejar el envío del formulario
     form.addEventListener('submit', function(e) {
         e.preventDefault();
 
+        // Validar captcha PRIMERO
+        const captchaResponse = grecaptcha.getResponse();
+        if (captchaResponse.length === 0) {
+            mostrarMensaje('Por favor verifica el captcha.', 'error');
+            return;
+        }
+
         // Obtener valores del formulario
         const nombre = document.getElementById('nombre').value.trim();
         const email = document.getElementById('email').value.trim();
+        const asunto = document.getElementById('asunto').value;
         const mensaje = document.getElementById('mensaje').value.trim();
 
         // Validaciones básicas
@@ -16,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Simular envío del formulario (en producción, aquí iría una llamada a la API)
-        enviarFormulario(nombre, email, mensaje);
+        // Enviar formulario y mostrar modal
+        enviarFormulario(nombre, email, asunto, mensaje);
     });
 
     function validarFormulario(nombre, email, mensaje) {
@@ -43,8 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
     }
 
-    // Función para simular envío
-    function enviarFormulario(nombre, email, mensaje) {
+    // Función para simular envío y mostrar modal
+    function enviarFormulario(nombre, email, asunto, mensaje) {
         // Deshabilitar botón mientras se procesa
         const submitBtn = form.querySelector('.form-submit-btn');
         const textoOriginal = submitBtn.textContent;
@@ -53,26 +65,70 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Simular delay de red (1.5 segundos)
         setTimeout(() => {
-            // Simular respuesta exitosa
-            console.log('Formulario enviado:');
-            console.log('Nombre:', nombre);
-            console.log('Email:', email);
-            console.log('Mensaje:', mensaje);
-
-            // Mostrar mensaje de éxito
-            mostrarMensaje('¡Gracias por contactarnos! Tu mensaje ha sido enviado correctamente. Te responderemos pronto.', 'exito');
+            // Mostrar modal con los datos
+            mostrarModal(nombre, email, asunto, mensaje);
 
             // Limpiar formulario
             form.reset();
+            grecaptcha.reset(); // Resetear captcha
 
             // Restaurar botón
             submitBtn.textContent = textoOriginal;
             submitBtn.disabled = false;
-
-            // Scroll al mensaje
-            mensajeDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 1500);
     }
+
+    // Función para mostrar el modal con los datos
+    function mostrarModal(nombre, email, asunto, mensaje) {
+        // Obtener el texto del asunto seleccionado
+        const asuntoTexto = document.querySelector(`#asunto option[value="${asunto}"]`).textContent;
+
+        // Crear contenido del modal
+        modalDatos.innerHTML = `
+            <div class="dato-item">
+                <strong>Nombre:</strong> ${nombre}
+            </div>
+            <div class="dato-item">
+                <strong>Email:</strong> ${email}
+            </div>
+            <div class="dato-item">
+                <strong>Asunto:</strong> ${asuntoTexto}
+            </div>
+            <div class="dato-item">
+                <strong>Mensaje:</strong> ${mensaje}
+            </div>
+        `;
+
+        // Mostrar modal
+        modal.style.display = 'block';
+        setTimeout(() => {
+            modal.classList.add('show');
+        }, 10);
+    }
+
+    // Función para cerrar el modal
+    function cerrarModal() {
+        modal.classList.remove('show');
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+
+    // Event listeners para cerrar modal
+    if (cerrarModalBtn) {
+        cerrarModalBtn.addEventListener('click', cerrarModal);
+    }
+    
+    if (btnCerrarModal) {
+        btnCerrarModal.addEventListener('click', cerrarModal);
+    }
+
+    // Cerrar modal al hacer click fuera
+    window.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            cerrarModal();
+        }
+    });
 
     // Función para mostrar mensajes
     function mostrarMensaje(texto, tipo) {
