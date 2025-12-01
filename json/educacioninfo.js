@@ -50,7 +50,7 @@ const elementosSangreInfo = {
         },
         {
             nombre: "Plasma",
-            imagen: "img/educacion/Plasma.png",
+            imagen: "img/educacion/plasma.png",
             descripcion: "Líquido que transporta células, hormonas, nutrientes y desechos."
         },
         {
