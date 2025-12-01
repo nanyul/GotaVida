@@ -73,23 +73,24 @@ function initDragAndDrop() {
     const dropZones = document.querySelectorAll('.drop-zone');
     const verificarBtn = document.getElementById('verificar-btn');
 
-    // Eventos para las tarjetas (escritorio)
+    // Eventos para las tarjetas (drag para desktop)
     cards.forEach(card => {
         card.addEventListener('dragstart', handleDragStart);
         card.addEventListener('dragend', handleDragEnd);
-        
-        // Eventos táctiles para móviles
-        card.addEventListener('touchstart', handleTouchStart, { passive: false });
-        card.addEventListener('touchmove', handleTouchMove, { passive: false });
-        card.addEventListener('touchend', handleTouchEnd, { passive: false });
+        // Eventos táctiles para móvil
+        card.addEventListener('click', handleCardClick);
+        card.addEventListener('touchend', handleCardTouch);
     });
 
-    // Eventos para las zonas de drop
+    // Eventos para las zonas de drop (desktop)
     dropZones.forEach(zone => {
         zone.addEventListener('dragover', handleDragOver);
         zone.addEventListener('dragenter', handleDragEnter);
         zone.addEventListener('dragleave', handleDragLeave);
         zone.addEventListener('drop', handleDrop);
+        // Eventos táctiles para móvil
+        zone.addEventListener('click', handleZoneClick);
+        zone.addEventListener('touchend', handleZoneTouch);
     });
 
     // Evento para verificar
@@ -100,8 +101,7 @@ function initDragAndDrop() {
 
 // Funciones de drag
 let draggedElement = null;
-let touchDraggedElement = null;
-let touchClone = null;
+let selectedCard = null; // Para el sistema de selección táctil
 
 function handleDragStart(e) {
     draggedElement = this;
@@ -112,6 +112,83 @@ function handleDragStart(e) {
 
 function handleDragEnd(e) {
     this.classList.remove('dragging');
+}
+
+// Funciones para selección táctil/click en móvil
+function handleCardClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Deseleccionar todas las tarjetas
+    document.querySelectorAll('.componente-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // Seleccionar esta tarjeta
+    this.classList.add('selected');
+    selectedCard = this;
+}
+
+function handleCardTouch(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Deseleccionar todas las tarjetas
+    document.querySelectorAll('.componente-card').forEach(card => {
+        card.classList.remove('selected');
+    });
+    
+    // Seleccionar esta tarjeta
+    this.classList.add('selected');
+    selectedCard = this;
+}
+
+function handleZoneClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (selectedCard) {
+        placeCardInZone(selectedCard, this);
+        selectedCard.classList.remove('selected');
+        selectedCard = null;
+    }
+}
+
+function handleZoneTouch(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (selectedCard) {
+        placeCardInZone(selectedCard, this);
+        selectedCard.classList.remove('selected');
+        selectedCard = null;
+    }
+}
+
+// Función común para colocar tarjeta en zona
+function placeCardInZone(card, zone) {
+    // Si ya hay algo en esta zona, devolverlo
+    const existingCard = zone.querySelector('.componente-card');
+    if (existingCard) {
+        document.querySelector('.componentes-disponibles').appendChild(existingCard);
+    }
+
+    // Colocar la nueva tarjeta
+    const componenteNombre = card.getAttribute('data-componente');
+    const zonaId = zone.getAttribute('data-zona');
+    
+    // Actualizar estado
+    componentesColocados[zonaId] = componenteNombre;
+
+    // Mover visualmente
+    zone.appendChild(card);
+    zone.classList.add('filled');
+
+    // Ocultar placeholder
+    const placeholder = zone.querySelector('.drop-placeholder');
+    if (placeholder) {
+        placeholder.style.display = 'none';
+    }
 }
 
 function handleDragOver(e) {
@@ -134,127 +211,18 @@ function handleDrop(e) {
     if (e.stopPropagation) {
         e.stopPropagation();
     }
+    if (e.preventDefault) {
+        e.preventDefault();
+    }
 
     this.classList.remove('over');
 
     if (draggedElement) {
-        // Si ya hay algo en esta zona, devolverlo
-        const existingCard = this.querySelector('.componente-card');
-        if (existingCard) {
-            document.querySelector('.componentes-disponibles').appendChild(existingCard);
-        }
-
-        // Colocar la nueva tarjeta
-        const componenteNombre = draggedElement.getAttribute('data-componente');
-        const zonaId = this.getAttribute('data-zona');
-        
-        // Actualizar estado
-        componentesColocados[zonaId] = componenteNombre;
-
-        // Mover visualmente
-        this.appendChild(draggedElement);
-        this.classList.add('filled');
-
-        // Ocultar placeholder
-        const placeholder = this.querySelector('.drop-placeholder');
-        if (placeholder) {
-            placeholder.style.display = 'none';
-        }
+        placeCardInZone(draggedElement, this);
+        draggedElement = null;
     }
 
     return false;
-}
-
-// Funciones táctiles para móviles
-function handleTouchStart(e) {
-    e.preventDefault();
-    touchDraggedElement = this;
-    this.classList.add('dragging');
-    
-    // Crear un clon visual para arrastrar
-    touchClone = this.cloneNode(true);
-    touchClone.style.position = 'fixed';
-    touchClone.style.zIndex = '9999';
-    touchClone.style.opacity = '0.8';
-    touchClone.style.pointerEvents = 'none';
-    touchClone.style.width = this.offsetWidth + 'px';
-    touchClone.style.height = this.offsetHeight + 'px';
-    document.body.appendChild(touchClone);
-    
-    // Posicionar el clon en el dedo
-    const touch = e.touches[0];
-    touchClone.style.left = (touch.pageX - this.offsetWidth / 2) + 'px';
-    touchClone.style.top = (touch.pageY - this.offsetHeight / 2) + 'px';
-}
-
-function handleTouchMove(e) {
-    e.preventDefault();
-    
-    if (!touchClone || !touchDraggedElement) return;
-    
-    const touch = e.touches[0];
-    touchClone.style.left = (touch.pageX - touchClone.offsetWidth / 2) + 'px';
-    touchClone.style.top = (touch.pageY - touchClone.offsetHeight / 2) + 'px';
-    
-    // Detectar sobre qué zona está
-    const dropZones = document.querySelectorAll('.drop-zone');
-    dropZones.forEach(zone => zone.classList.remove('over'));
-    
-    const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
-    const dropZone = elementBelow?.closest('.drop-zone');
-    
-    if (dropZone) {
-        dropZone.classList.add('over');
-    }
-}
-
-function handleTouchEnd(e) {
-    e.preventDefault();
-    
-    if (!touchDraggedElement) return;
-    
-    touchDraggedElement.classList.remove('dragging');
-    
-    // Obtener la posición final
-    const touch = e.changedTouches[0];
-    const elementBelow = document.elementFromPoint(touch.clientX, touch.clientY);
-    const dropZone = elementBelow?.closest('.drop-zone');
-    
-    // Limpiar clases 'over'
-    document.querySelectorAll('.drop-zone').forEach(zone => zone.classList.remove('over'));
-    
-    if (dropZone) {
-        // Si ya hay algo en esta zona, devolverlo
-        const existingCard = dropZone.querySelector('.componente-card');
-        if (existingCard) {
-            document.querySelector('.componentes-disponibles').appendChild(existingCard);
-        }
-        
-        // Colocar la nueva tarjeta
-        const componenteNombre = touchDraggedElement.getAttribute('data-componente');
-        const zonaId = dropZone.getAttribute('data-zona');
-        
-        // Actualizar estado
-        componentesColocados[zonaId] = componenteNombre;
-        
-        // Mover visualmente
-        dropZone.appendChild(touchDraggedElement);
-        dropZone.classList.add('filled');
-        
-        // Ocultar placeholder
-        const placeholder = dropZone.querySelector('.drop-placeholder');
-        if (placeholder) {
-            placeholder.style.display = 'none';
-        }
-    }
-    
-    // Limpiar el clon
-    if (touchClone && touchClone.parentNode) {
-        touchClone.parentNode.removeChild(touchClone);
-    }
-    
-    touchClone = null;
-    touchDraggedElement = null;
 }
 
 // Verificar respuestas

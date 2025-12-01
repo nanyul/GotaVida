@@ -294,9 +294,6 @@
     gap: 10px;
     min-width: 160px;
     min-height: 80px;
-    touch-action: none;
-    user-select: none;
-    -webkit-user-select: none;
 }
 
 .componente-card:hover {
@@ -307,6 +304,12 @@
 .componente-card.dragging {
     opacity: 0.5;
     transform: rotate(5deg);
+}
+
+.componente-card.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px #FFD700, 0 6px 20px rgba(0, 0, 0, 0.4);
+    border: 3px solid #FFD700;
 }
 
 .componente-img {
@@ -513,6 +516,17 @@
 
     .componente-card {
         width: calc(50% - 10px);
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .drop-zone {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
 
     #zona1, #zona2, #zona3 {
