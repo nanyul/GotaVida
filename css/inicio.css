@@ -22,7 +22,6 @@ body {
     font-style: normal;
 }
 
-/* PALETA DE COLORES */
 :root {
     --rojo-rubi: #AA0235;
     --burdeos: #69021E;
@@ -31,8 +30,6 @@ body {
     --azul: #003049;
 }
 
-
-/* NAV */
 .site-header {
     padding: 26px 20px;
     background: #003049;
@@ -163,7 +160,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Animación del icono de electrocardiograma */
 .ecg-icon {
     opacity: 0.2;
     animation: ecgWave 2.5s linear infinite;
@@ -220,7 +216,6 @@ body {
         transform: scale(1.4);
     }
 
-    /* Punto alto del ECG */
     40% {
         opacity: 0.4;
         transform: scale(0.9);
@@ -272,7 +267,6 @@ body {
     }
 }
 
-/* Responsive adjustments */
 @media (max-width: 900px) {
     .header-inner {
         padding: 0 12px
@@ -371,7 +365,6 @@ body {
     }
 }
 
-/* Botón hamburguesa */
 .hamburger-btn {
     display: none;
     background: var(--beige);
@@ -485,7 +478,6 @@ body {
     }
 }
 
-/* header */
 .hero-section {
     background: linear-gradient(to bottom, #f5f0e6, #d46a6a)!important;
     border-radius: 0 0 32px 32px;
@@ -615,10 +607,7 @@ body {
     background: #c33;
 }
 
-
-/* Animación para el globo de diálogo */
 .hero-dialog {
-    /* ...otros estilos... */
     animation: popIn 0.8s cubic-bezier(.5, 1.7, .5, 1) 0.2s both;
 }
 
@@ -639,9 +628,6 @@ body {
     }
 }
 
-/* =============================
-   Sección principal debajo del menú
-============================= */
 .hero-section {
     position: relative;
     background: #F7F3DA;
@@ -654,7 +640,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Gota triste */
 .hero-gota {
     position: absolute;
     left: 80px;
@@ -689,7 +674,6 @@ body {
     }
 }
 
-/* Coágulos detrás de la gota */
 .hero-coagulos {
     position: absolute;
     left: 150px;
@@ -700,9 +684,6 @@ body {
 
 }
 
-
-
-/* Globo de diálogo */
 .hero-dialog {
     position: absolute;
     margin-left: 100px;
@@ -747,7 +728,6 @@ body {
     margin-bottom: 16px;
 }
 
-/* Primera línea: "Cada gota" */
 .hero-title .script:first-child {
     font-size: 3.5rem;
     margin-left: 600px;
@@ -755,7 +735,6 @@ body {
     margin-top: 30px;
 }
 
-/* Segunda línea + bolsa de sangre en una fila */
 .hero-title .linea2 {
     display: flex;
     align-items: flex-end;
@@ -764,7 +743,6 @@ body {
     margin-left: 75px;
 }
 
-/* Palabra "cuenta" */
 .hero-title .linea2 .script {
     font-size: 3.5rem;
     line-height: 1em;
@@ -780,7 +758,6 @@ body {
     top: 15px;
 }
 
-/* Mensaje motivacional */
 .hero-message {
     margin-top: 18px;
     margin-left: 500px;
@@ -795,7 +772,6 @@ body {
     font-weight: 700;
 }
 
-/* Botón destacado */
 .hero-btn {
     margin-top: 32px;
     margin-left: 500px;
@@ -816,7 +792,6 @@ body {
     background: #69021E;
 }
 
-/* Responsive para hero-section */
 @media (max-width: 1400px) {
     .hero-gota {
         width: 280px;
@@ -1164,13 +1139,11 @@ body {
     background-position: center;
 }
 
-/* full */
 #carousel {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
 }
 
-/* Responsive  */
 @media (max-width: 768px) {
     .carousel-slide h2 {
         font-size: 2rem;
@@ -1182,7 +1155,6 @@ body {
     }
 }
 
-/* SECCIÓN IMPORTANCIA */
 .importancia-section {
     background: linear-gradient(135deg, #AA0235, #030206);
     padding: 80px 20px;
@@ -1251,7 +1223,6 @@ body {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive para importancia */
 @media (max-width: 1024px) {
     .importancia-elemento {
         width: 200px;
@@ -1300,7 +1271,6 @@ body {
     }
 }
 
-/* SECCIÓN ANTES DE DONAR */
 .antes-de-donar-section {
     background: var(--azul);
     padding: 60px 20px;
@@ -1397,7 +1367,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsive para antes de donar */
 @media (max-width: 1024px) {
     .antes-content {
         gap: 40px;
@@ -1439,7 +1408,6 @@ body {
     }
 }
 
-/* SECCIÓN QUIÉN PUEDE DONAR */
 .quiendona-section {
     background: #030206;
     padding: 80px 20px;
@@ -1559,7 +1527,6 @@ body {
     }
 }
 
-/* SECCIÓN DESPUÉS DE DONAR */
 .despues-de-donar-section {
     background: var(--azul);
     padding: 60px 20px;
@@ -1656,7 +1623,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Responsive para después de donar */
 @media (max-width: 1024px) {
     .despues-content {
         gap: 40px;
@@ -1698,7 +1664,6 @@ body {
     }
 }
 
-/* SECCIÓN RECUADROS */
 .recuadros-section {
     background: linear-gradient(to bottom, #f5f0e6, #d46a6a);
     padding: 60px 20px;
@@ -1710,7 +1675,6 @@ body {
     margin: 0 auto;
 }
 
-/* Contador de donaciones */
 .donaciones-counter {
     background: radial-gradient(circle, #AA0235, #69021E);
     border-radius: 20px;
@@ -1783,8 +1747,6 @@ body {
     height: auto;
 }
 
-
-/* Grid de recuadros */
 .recuadros-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(220px, 1fr));
@@ -1797,7 +1759,6 @@ body {
     color: #F7F3DA;
 }
 
-/* Estilos base para recuadros */
 .recuadro {
     border-radius: 16px;
     padding: 28px 22px 22px 22px;
@@ -1864,7 +1825,6 @@ body {
     display: block;
 }
 
-/* Registro de Donantes */
 .registro-donantes {
     background: linear-gradient(135deg, var(--azul), #1a4b5c);
     display: flex;
@@ -1912,7 +1872,6 @@ body {
 
 }
 
-/* Campañas y Centros */
 .campanias-centros {
     background: linear-gradient(135deg, var(--azul), #1a4b5c);
     justify-content: center;
@@ -1937,8 +1896,6 @@ body {
     display: block;
 }
 
-
-/* Alertas y Notificaciones */
 .alertas-notificaciones {
     background: linear-gradient(135deg, var(--azul), #1a4b5c);
     min-height: 160px !important;
@@ -2000,7 +1957,6 @@ body {
     margin-left: 5px;
 }
 
-/* Sección Educativa */
 .seccion-educativa {
     background: linear-gradient(135deg, var(--azul), #1a4b5c);
     min-height: 160px !important;
@@ -2011,7 +1967,6 @@ body {
     text-align: left;
 }
 
-/* Reconocimiento y Perfil */
 .reconocimiento-perfil {
     background: linear-gradient(135deg, var(--azul), #1a4b5c);
     color: var(--beige);
@@ -2023,7 +1978,6 @@ body {
     text-align: left;
 }
 
-/* Estadísticas y Testimonios */
 .estadisticas-testimonios {
     background: linear-gradient(135deg, var(--azul), #1a4b5c);
     min-height: 260px !important;
@@ -2060,7 +2014,6 @@ body {
     margin-left: 100px;
 }
 
-/* Responsive para recuadros */
 @media (max-width: 1200px) {
     .donaciones-counter {
         width: 80%;

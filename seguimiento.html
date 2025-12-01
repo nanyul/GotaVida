@@ -1,11 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Seguimiento de Donaciones - GotaDeVida</title>
+    <link rel="stylesheet" href="css/inicio.css">
+    <link rel="stylesheet" href="css/seguimiento.css">
+    <link rel="icon" href="img/inicio/gota.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-    
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="brand">
+                <!-- Logo animado y clickeable -->
+                <a href="index.html" class="logo-link">
+                    <img class="brand-logo" src="img/inicio/LogoGota.png" alt="Gota de Vida logo">
+                </a>
+            </div>
+
+            <!-- Menú hamburguesa -->
+            <button class="hamburger-btn" aria-label="Menú" id="hamburger-btn">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <nav class="main-nav" aria-label="Principal" id="main-nav">
+                <ul class="menu-items">
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="index.html">INICIO</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="centros.html">CAMPAÑAS</a>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="alertas.html"
+                            class="active">ALERTAS</a></li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a
+                            href="seguimiento.html">SEGUIMIENTO</a>
+                    </li>
+                    <li class="menu-corazon">
+                        <a href="donante.html">
+                            <button class="heart-btn" aria-label="Registro">
+                                <img src="img/inicio/corazon.png" alt="Corazón" class="corazon-icon">
+                                <span class="texto-corazon">Registro</span>
+                            </button>
+                        </a>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="educacion.html">EDUCACIÓN</a>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="contacto.html">CONTACTO</a>
+                    </li>
+                    <li class="menu-item"><span class="pulse"><img src="img/inicio/electrocardiograma.png"
+                                alt="Electrocardiograma" class="ecg-icon"></span><a href="acercade.html">Acerca De</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="seguimiento-container">
+        <!-- Perfil del usuario -->
+        <div class="perfil-header">
+            <img id="fotoPerfil" src="img/inicio/gota.png" alt="Foto de perfil" class="perfil-foto">
+            <div class="perfil-info">
+                <h1 id="nombreUsuario" class="perfil-nombre">Cargando...</h1>
+                <p id="cedulaUsuario" class="perfil-cedula">Cédula: ---</p>
+
+                <!-- Barra de progreso -->
+                <div class="progreso-donaciones">
+                    <div id="barraDonaciones" class="progreso-barra" style="width: 0%;">
+                    </div>
+                    <div id="textoDonaciones" class="progreso-texto">0 / 10 donaciones</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historial de donaciones -->
+        <div class="historial-section">
+            <h2 class="historial-titulo">Historial de Donaciones</h2>
+            <div id="historialLista" class="historial-lista">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Insignias obtenidas -->
+        <div class="insignias-section">
+            <h2 class="insignias-titulo">Insignias Obtenidas</h2>
+            <div id="insigniasGrid" class="insignias-grid">
+                <!-- Se llenará dinámicamente -->
+            </div>
+        </div>
+
+        <!-- Botón volver -->
+        <div class="btn-volver">
+            <a href="index.html">Volver al Inicio</a>
+        </div>
+    </div>
+
+    <script src="js/notificaciones.js"></script>
+    <script src="js/localStorage.js"></script>
+    <script src="js/centros.js"></script>
+    <script src="js/menu-hamburguesa.js"></script>
+    <script type="module" src="js/seguimiento.js"></script>
 </body>
+
 </html>

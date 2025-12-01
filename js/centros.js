@@ -427,7 +427,73 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("radioText").textContent = r;
         mostrarMarcadores(r);
     });
+
+    // Manejar clics en botones de inscripción
+    document.addEventListener("click", (e) => {
+        if (e.target.closest(".btnInscribirLista")) {
+            const btn = e.target.closest(".btnInscribirLista");
+            
+            // Verificar si el botón está deshabilitado
+            if (btn.disabled) {
+                mostrarToast("No eres compatible con esta campaña", true);
+                return;
+            }
+            
+            const campaniaId = btn.getAttribute("data-id");
+            inscribirseEnCampana(campaniaId);
+        }
+    });
 });
+
+// Función para inscribirse en una campaña
+function inscribirseEnCampana(campaniaId) {
+    const cedula = localStorage.getItem("usuarioActivo");
+    
+    if (!cedula) {
+        mostrarToast("Debes iniciar sesión para inscribirte", true);
+        setTimeout(() => {
+            window.location.href = "donante.html";
+        }, 1500);
+        return;
+    }
+    
+    // Buscar la campaña
+    const campania = campanas.find(c => c.id == campaniaId);
+    
+    if (!campania) {
+        mostrarToast("Campaña no encontrada", true);
+        return;
+    }
+    
+    // Agregar donación al historial
+    const donaciones = JSON.parse(localStorage.getItem("donaciones_" + cedula)) || [];
+    const fecha = new Date().toLocaleDateString('es-ES');
+    
+    donaciones.push({
+        fecha: fecha,
+        campana: campania.titulo,
+        ubicacion: campania.lugar,
+        id: Date.now()
+    });
+    
+    localStorage.setItem("donaciones_" + cedula, JSON.stringify(donaciones));
+    
+    // Actualizar contador en la página de inicio si existe la función
+    if (typeof window.actualizarContadorDonaciones === 'function') {
+        window.actualizarContadorDonaciones();
+    }
+    
+    // Mostrar mensaje de éxito
+    mostrarToast("¡Te has inscrito exitosamente! Revisa tu seguimiento.");
+    latidoCorazon();
+    
+    // Opcional: Redirigir a seguimiento después de 2 segundos
+    setTimeout(() => {
+        if (confirm("¿Deseas ver tu historial de donaciones?")) {
+            window.location.href = "seguimiento.html";
+        }
+    }, 1500);
+}
 
 
 

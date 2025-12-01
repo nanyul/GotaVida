@@ -213,6 +213,16 @@ function createRecuadrosSection(data) {
     const recuadrosContainer = document.getElementById('recuadros-container');
     recuadrosContainer.innerHTML = '';
 
+    // Obtener total de donaciones del usuario activo o total global
+    const cedula = localStorage.getItem("usuarioActivo");
+    let totalDonaciones = data.donaciones.total;
+    
+    if (cedula) {
+        // Si hay usuario logueado, contar sus donaciones
+        const donaciones = JSON.parse(localStorage.getItem("donaciones_" + cedula)) || [];
+        totalDonaciones = donaciones.length;
+    }
+
     // Mensaje principal de donaciones
     const mensajePrincipalHTML = `
         <div class="donaciones-counter">
@@ -221,7 +231,7 @@ function createRecuadrosSection(data) {
             </div>
             <div class="donaciones-content">
                 <h2 class="donaciones-mensaje">${data.donaciones.mensaje}</h2>
-                <div class="donaciones-total">${data.donaciones.total.toLocaleString()} DONACIONES</div>
+                <div class="donaciones-total" id="totalDonaciones">${totalDonaciones.toLocaleString()} DONACIONES</div>
             </div>
             <div class="elementos-container">
                 <img src="${data.donaciones.imagen2}" alt="Elementos" class="elementos-imagen">
@@ -315,4 +325,25 @@ function createRecuadrosSection(data) {
     recuadrosContainer.innerHTML = mensajePrincipalHTML + seccionesHTML;
 }
 
+// Función global para actualizar el contador de donaciones
+window.actualizarContadorDonaciones = function() {
+    const cedula = localStorage.getItem("usuarioActivo");
+    const totalDonacionesElement = document.getElementById("totalDonaciones");
+    
+    if (totalDonacionesElement && cedula) {
+        const donaciones = JSON.parse(localStorage.getItem("donaciones_" + cedula)) || [];
+        totalDonacionesElement.textContent = donaciones.length.toLocaleString() + " DONACIONES";
+    }
+};
 
+// Actualizar contador cuando la página se vuelve visible
+document.addEventListener('visibilitychange', function() {
+    if (!document.hidden) {
+        actualizarContadorDonaciones();
+    }
+});
+
+// Actualizar cuando la página carga
+window.addEventListener('load', function() {
+    actualizarContadorDonaciones();
+});

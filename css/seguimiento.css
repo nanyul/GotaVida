@@ -1,0 +1,264 @@
+
+
+.seguimiento-container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #F7F3DA;
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #003049;
+}
+
+.perfil-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #69021E;
+    object-fit: cover;
+}
+
+.perfil-info {
+    flex: 1;
+}
+
+.perfil-nombre {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #030206;
+    margin-bottom: 5px;
+}
+
+.perfil-cedula {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.progreso-donaciones {
+    background: #69021E;
+    border-radius: 20px;
+    padding: 8px;
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+}
+
+.progreso-barra {
+    background: #AA0235;
+    height: 100%;
+    border-radius: 15px;
+    transition: width 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F7F3DA;
+    font-weight: bold;
+    font-size: 0.9rem;
+    position: relative;
+}
+
+.progreso-texto {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    color: #030206;
+    font-size: 0.85rem;
+    z-index: 2;
+}
+
+.historial-section {
+    margin-top: 30px;
+}
+
+.historial-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #AA0235;
+    margin-bottom: 20px;
+    font-family: 'Arturo', Arial, sans-serif;
+}
+
+.historial-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.historial-item {
+    background: #FFF5F8;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border-left: 4px solid #AA0235;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.historial-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(170, 2, 53, 0.2);
+}
+
+.historial-fecha {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.historial-campana {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #030206;
+    margin-bottom: 3px;
+}
+
+.historial-ubicacion {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.btn-certificado {
+    background: #003049;
+    color: #F7F3DA;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-certificado:hover {
+    background: #AA0235;
+}
+
+.insignias-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #f7f3da;
+}
+
+.insignias-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #003049;
+    margin-bottom: 20px;
+    font-family: 'Arturo', Arial, sans-serif;
+}
+
+.insignias-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.insignia {
+    background: transparent;
+    border: none;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s;
+    position: relative;
+    overflow: visible;
+}
+
+.insignia img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.insignia.obtenida {
+    animation: pulso 2s infinite;
+}
+
+.insignia.bloqueada {
+    opacity: 0.3;
+    filter: grayscale(100%);
+}
+
+.insignia:hover {
+    transform: scale(1.1);
+}
+
+@keyframes pulso {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.sin-donaciones {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+.sin-donaciones-icono {
+    font-size: 4rem;
+    margin-bottom: 15px;
+    opacity: 0.3;
+}
+
+.sin-donaciones-texto {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.btn-volver {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-volver a {
+    display: inline-block;
+    background: #003049;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-volver a:hover {
+    background: #AA0235;
+}
+
+@media (max-width: 768px) {
+    .seguimiento-container {
+        padding: 25px;
+        margin: 20px auto;
+    }
+    
+    .perfil-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .perfil-nombre {
+        font-size: 1.5rem;
+    }
+    
+    .insignias-grid {
+        justify-content: center;
+    }
+}
