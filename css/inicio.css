@@ -105,8 +105,9 @@ body {
 
 
 .menu-item a.active {
-    background: var(--rojo-rubi);
-    color: #F7F3DA;
+    text-decoration: underline #AA0235;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 4px;
     font-weight: 900;
 }
 
@@ -235,10 +236,7 @@ body {
     display: inline-block;
 }
 
-.brand-logo {
-    transition: transform 0.3s cubic-bezier(.5, 1.7, .5, 1);
-    cursor: pointer;
-}
+
 
 .logo-link:hover .brand-logo {
     transform: scale(1.12);
@@ -489,7 +487,7 @@ body {
 
 /* header */
 .hero-section {
-    background: #F7F3DA;
+    background: linear-gradient(to bottom, #f5f0e6, #d46a6a)!important;
     border-radius: 0 0 32px 32px;
     padding: 32px 0 32px 0;
     display: flex;
@@ -720,9 +718,24 @@ body {
     max-width: 340px;
     z-index: 3;
     text-align: center;
+    animation: popIn 0.8s cubic-bezier(.5, 1.7, .5, 1) 0.2s both;
 }
 
-/* Título script y bolsa de sangre */
+@keyframes popIn {
+    0% {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    70% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .hero-title {
     display: inline-flex;
     flex-direction: column;
@@ -1687,7 +1700,7 @@ body {
 
 /* SECCIÓN RECUADROS */
 .recuadros-section {
-    background: var(--beige);
+    background: linear-gradient(to bottom, #f5f0e6, #d46a6a);
     padding: 60px 20px;
     min-height: 600px;
 }

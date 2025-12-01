@@ -1,14 +1,25 @@
-// Carrusel
+// Variables globales del carrusel
 let currentSlide = 0;
 let slides = [];
 let totalSlides = 0;
 
+// Cargar todos los datos de inicio desde un solo archivo
+let inicioData = {};
 
-fetch("json/carousel.json")
+fetch("json/inicio.json")
     .then(res => res.json())
     .then(data => {
-        console.log(data);
-        createCarouselSlides(data.slides);
+        console.log('Datos de inicio cargados:', data);
+        inicioData = data;
+        
+        // Crear todas las secciones
+        createCarouselSlides(data.carousel.slides);
+        createImportanciaSection(data.importancia);
+        createAntesDeDonarSection(data.antesDeDonar);
+        createQuienDonarSection(data.quienPuedeDonar);
+        createDespuesDeDonarSection(data.despuesDeDonar);
+        createRecuadrosSection(data.recuadros);
+        
         slides = document.querySelectorAll('.carousel-slide');
         totalSlides = slides.length;
         startCarousel();
@@ -18,8 +29,8 @@ fetch("json/carousel.json")
         window.dispatchEvent(new Event('carouselReady'));
     })
     .catch(error => {
-        console.error('Error loading carousel data:', error);
-
+        console.error('Error loading inicio data:', error);
+        
         slides = document.querySelectorAll('.carousel-slide');
         totalSlides = slides.length;
         startCarousel();
@@ -107,16 +118,7 @@ function startCarousel() {
     setInterval(nextSlide, 4000);
 }
 
-//Importancia seccion
-fetch("json/importancia.json")
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        createImportanciaSection(data);
-    })
-    .catch(error => {
-        console.error('Error loading importancia data:', error);
-    });
+// Funciones de creación de secciones
 
 function createImportanciaSection(data) {
     const importanciaContainer = document.getElementById('importancia');
@@ -137,17 +139,6 @@ function createImportanciaSection(data) {
     importanciaContainer.innerHTML = tituloHTML + elementosHTML;
 }
 
-//Antes de donar seccion
-fetch("json/antesdedonar.json")
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        createAntesDeDonarSection(data);
-    })
-    .catch(error => {
-        console.error('Error loading antes de donar data:', error);
-    });
-
 function createAntesDeDonarSection(data) {
     const antesContainer = document.getElementById('antes-de-donar');
     antesContainer.innerHTML = ''; // Limpiar contenido existente
@@ -166,23 +157,12 @@ function createAntesDeDonarSection(data) {
                 </div>
             </div>
             <div class="antes-right">
-                <img src="${data.Imagen}" alt="Antes de donar" class="antes-imagen">
+                <img src="${data.imagen}" alt="Antes de donar" class="antes-imagen">
             </div>
         </div>
     `;
     antesContainer.innerHTML = sectionHTML;
 }
-
-//Quien puede donar seccion
-fetch("json/quiendonar.json")
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        createQuienDonarSection(data);
-    })
-    .catch(error => {
-        console.error('Error loading importancia data:', error);
-    });
 
 function createQuienDonarSection(data) {
     const quienDonarContainer = document.getElementById('quien-donar');
@@ -203,17 +183,6 @@ function createQuienDonarSection(data) {
     quienDonarContainer.innerHTML = tituloHTML + elementosHTML;
 }
 
-//Despues de donar seccion
-fetch("json/despuesdedonar.json")
-    .then(res => res.json())
-    .then(data => {
-        console.log(data);
-        createDespuesDeDonarSection(data);
-    })
-    .catch(error => {
-        console.error('Error loading despues de donar data:', error);
-    });
-
 function createDespuesDeDonarSection(data) {
     const despuesContainer = document.getElementById('despues-de-donar');
     despuesContainer.innerHTML = ''; // Limpiar contenido existente
@@ -221,7 +190,7 @@ function createDespuesDeDonarSection(data) {
     const sectionHTML = `
         <div class="despues-content">
                     <div class="despues-right">
-                <img src="${data.Imagen}" alt="Después de donar" class="despues-imagen">
+                <img src="${data.imagen}" alt="Después de donar" class="despues-imagen">
             </div>
             <div class="despues-left">
                 <h2 class="despues-title">${data.titulo}</h2>
@@ -239,16 +208,6 @@ function createDespuesDeDonarSection(data) {
     despuesContainer.innerHTML = sectionHTML;
 
 }
-
-//Recuadros seccion
-import('../json/recuadros.js')
-    .then(module => {
-        console.log(module.default);
-        createRecuadrosSection(module.default);
-    })
-    .catch(error => {
-        console.error('Error loading recuadros data:', error);
-    });
 
 function createRecuadrosSection(data) {
     const recuadrosContainer = document.getElementById('recuadros-container');

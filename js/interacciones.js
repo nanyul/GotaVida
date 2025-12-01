@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const botonTest = e.target.closest('[data-action="test-donacion"]');
         
         if (botonTest) {
-            console.log('✅ Click detectado en botón del test');
+            console.log('Click detectado en botón del test');
             console.log('Atributo data-action:', botonTest.getAttribute('data-action'));
             e.preventDefault();
             e.stopPropagation();
@@ -202,9 +202,9 @@ document.addEventListener('DOMContentLoaded', function() {
             if (modal) {
                 modal.style.display = 'flex';
                 document.body.style.overflow = 'hidden';
-                console.log('✅ Modal abierto');
+                console.log('Modal abierto');
             } else {
-                console.error('❌ Modal no encontrado');
+                console.error('Modal no encontrado');
             }
         } else {
             console.log('⚠️ Click NO fue en botón con data-action="test-donacion"');
