@@ -8,6 +8,7 @@
     "tipoSangre": "O+",
     "requisitos": "18-65 años, >50kg",
     "contacto": "2222-2222",
+    "urgente": true, 
     "lat": 9.9385,
     "lng": -84.0817
   },
@@ -44,6 +45,7 @@
     "tipoSangre": "O-",
     "requisitos": "Ayuno de 2 horas",
     "contacto": "2211-1100",
+    "urgente" : true,
     "lat": 9.93,
     "lng": -84.07
   },
@@ -68,6 +70,7 @@
   "tipoSangre": "A-",
   "requisitos": "Haber donado al menos una vez",
   "contacto": "2260-1700",
+  "urgente": true, 
   "lat": 9.9985,
   "lng": -84.1190
   },
@@ -116,6 +119,7 @@
   "tipoSangre": "A+",
   "requisitos": "No haber ingerido aspirina en 48h",
   "contacto": "2240-0400",
+  "urgente" : true,
   "lat": 9.9502,
   "lng": -84.0992
 },
@@ -128,8 +132,8 @@
   "tipoSangre": "AB+",
   "requisitos": "18–65 años, ayuno ligero",
   "contacto": "2436-0200",
+  "urgente" : true,
   "lat": 10.0189,
   "lng": -84.2144
 }
-
 ]

@@ -3,7 +3,7 @@ let markers = [];
 let campanas = [];
 
 
-//   UTILS
+//UTILS
 function calcularDistancia(lat1, lon1, lat2, lon2) {
     const R = 6371;
     const dLat = (lat2 - lat1) * Math.PI / 180;
@@ -58,7 +58,7 @@ function esCompatible(donante, receptor) {
 }
 
 
-//     INICIALIZAR MAPA
+//INICIALIZAR MAPA
 function iniciarMapa(lat = 9.9333, lng = -84.0833) {
     map = L.map("map").setView([lat, lng], 13);
 
@@ -75,7 +75,6 @@ function iniciarMapa(lat = 9.9333, lng = -84.0833) {
     });
 }
 
-
 function obtenerTipoUsuario() {
     const cedula = localStorage.getItem("usuarioActivo");
     if (!cedula) return null;
@@ -85,7 +84,6 @@ function obtenerTipoUsuario() {
 
     return user ? (user.grupo || null) : null;
 }
-
 
 
 //      MOSTRAR MARCADORES
@@ -150,7 +148,7 @@ function mostrarMarcadores(radioKm = 5) {
         if (distancia !== null && distancia > radioKm) return;
 
         let marker = L.marker([c.lat, c.lng]).addTo(map);
-
+        marker.campanaId = c.id;
         markers.push(marker);
 
         let popup = `
@@ -390,6 +388,7 @@ async function cargarCampanas() {
 }
 
 
+
 //INICIO GENERAL
 async function iniciarCentros() {
     await cargarCampanas();
@@ -404,6 +403,7 @@ async function iniciarCentros() {
 
             map.setView([userLat, userLng], 14);
             userMarker = L.marker([userLat, userLng]).addTo(map).bindPopup("Estás aquí");
+
 
             mostrarMarcadores(Number(document.getElementById("radioInput").value) || 5);
 
@@ -422,11 +422,12 @@ async function iniciarCentros() {
 document.addEventListener("DOMContentLoaded", () => {
 
     iniciarCentros();
-
     document.getElementById("btnAplicarRadio").addEventListener("click", () => {
         let r = Number(document.getElementById("radioInput").value) || 5;
         document.getElementById("radioText").textContent = r;
         mostrarMarcadores(r);
     });
 });
+
+
 

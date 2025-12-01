@@ -17,6 +17,39 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     mostrarUsuarioActivo();
+
+
+    // Mostrar punto de notificación si hay campañas urgentes
+const campanas = JSON.parse(localStorage.getItem("campanas")) || [];
+const listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || [];
+const usuario = listaUsuarios.find(u => u.cedula === cedulaActiva);
+const tipoUsuario = usuario?.grupo || null;
+
+// Función de compatibilidad (ya la tienes en notificaciones.js, puedes copiarla)
+function esCompatible(donante, receptor) {
+    const compatibilidad = {
+        "O-": ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"],
+        "O+": ["O+", "A+", "B+", "AB+"],
+        "A-": ["A-", "A+", "AB-", "AB+"],
+        "A+": ["A+", "AB+"],
+        "B-": ["B-", "B+", "AB-", "AB+"],
+        "B+": ["B+", "AB+"],
+        "AB-": ["AB-", "AB+"],
+        "AB+": ["AB+"]
+    };
+    return compatibilidad[donante]?.includes(receptor) ?? false;
+}
+
+// Filtrar campañas urgentes compatibles
+const urgentes = campanas.filter(c => c.urgente && esCompatible(tipoUsuario, c.tipoSangre));
+
+const puntoMini = document.getElementById("puntoNotificacionMini");
+if (urgentes.length > 0) {
+    puntoMini.classList.remove("hidden"); // Mostrar punto
+} else {
+    puntoMini.classList.add("hidden"); // Ocultar si no hay alertas
+}
+
 });
 
 
@@ -27,10 +60,8 @@ const loginMini = document.getElementById("loginMini");
 const miniMenu = document.getElementById("miniMenu");
 
 
-// ========================
-//      CARGAR PERFIL
-// ========================
 
+//CARGAR PERFIL
 function cargarDatosFormulario(data) {
     document.getElementById("nombre").value = data.nombre;
     document.getElementById("correo").value = data.correo;
@@ -47,8 +78,6 @@ function cargarDatosFormulario(data) {
 
 
 //GUARDAR PERFIL
-
-
 if (form) {
 form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -60,14 +89,13 @@ form.addEventListener("submit", (e) => {
         telefono: document.getElementById("telefono").value,
         grupo: document.getElementById("grupo").value,
         historial: [], 
-        //historial: document.getElementById("historial").value,
         disponible: document.getElementById("disponible").value
     };
 
-    // 1. Traer la lista actual de usuarios
+    //  Traer la lista actual de usuarios
     let lista = JSON.parse(localStorage.getItem("listaUsuarios")) || [];
 
-    //  2. Ver si la cédula ya existe → actualizar ese usuario
+    // Ver si la cédula ya existe → actualizar ese usuario
     const index = lista.findIndex(u => u.cedula === perfil.cedula);
 
     if (index >= 0) {
@@ -76,10 +104,10 @@ form.addEventListener("submit", (e) => {
         lista.push(perfil);      // Crear nuevo
     }
 
-    //  3. Guardar lista completa otra vez
+    //  Guarda la lista completa otra vez
     localStorage.setItem("listaUsuarios", JSON.stringify(lista));
 
-    //  4. Usuario activo
+    // Usuario activo
     localStorage.setItem("usuarioActivo", perfil.cedula);
 
     mostrarUsuarioActivo();
@@ -130,11 +158,9 @@ function mostrarUsuarioActivo() {
 
 
 //  CLICK EN MINI PERFIL
-
 miniPerfil.addEventListener("click", () => {
     const user = localStorage.getItem("usuarioActivo");
 
-    // Cerrar todo antes de abrir lo necesario
     miniMenu.classList.add("hidden");
     loginMini.classList.add("hidden");
 
@@ -161,6 +187,10 @@ miniPerfil.addEventListener("click", () => {
 document.getElementById("btnVerPerfil").addEventListener("click", () => {
     window.location.href = "donante.html"; 
 });
+
+document.getElementById("btnNoti").addEventListener("click", () => {
+    window.location.href = "alertas.html"; 
+})
 
 
 //  CERRAR MINI MENU AL HACER CLICK FUERA
@@ -205,37 +235,35 @@ document.getElementById("btnLoginMini").addEventListener("click", () => {
 
 // CERRAR SESIÓN
 document.getElementById("cerrarSesion").addEventListener("click", () => {
-    // 1) Quitar usuario activo (no borra la cuenta, solo la sesión)
+    // Quitar usuario activo 
     localStorage.removeItem("usuarioActivo");
 
-    // 2) Cerrar menú
+    //Cerrar menú
     miniMenu.classList.add("hidden");
 
-    // 3) Limpiar el formulario (si existe en la página actual)
+    // Limpiar el formulario
     if (typeof form !== "undefined" && form instanceof HTMLFormElement) {
         form.reset();
     } else {
-        // por si no tienes la variable `form` en este archivo/contexto
         const f = document.getElementById("perfilForm");
         if (f) f.reset();
     }
 
-    // 4) Ocultar la tarjeta con la info guardada (si está visible)
+    //Ocultar la tarjeta con la info guardada (si está visible)
     const perfilGuardadoEl = document.getElementById("perfilGuardado");
     if (perfilGuardadoEl) {
         perfilGuardadoEl.classList.add("hidden");
     }
 
-    // 5) Limpiar los campos de salida por si quedan textos
+    //Limpiar los campos de salida por si quedan textos
     ["outNombre","outGrupo","outHistorial","outDisponible"].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.textContent = "";
     });
 
-    // 6) Actualizar UI del miniPerfil (mostrará "Iniciar sesión")
+    // Actualizar UI del miniPerfil (mostrará "Iniciar sesión")
     mostrarUsuarioActivo();
 });
-
 
 
 // ANIMACIÓN GUARDADO + NOTIFICACIÓN

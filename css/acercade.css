@@ -1,195 +1,4 @@
-/* PALETA */
-:root {
-    --rojo-rubi: #AA0235;
-    --burdeos: #69021E;
-    --beige: #F7F3DA;
-    --negro: #030206;
-    --azul: #003049;
-}
 
-
-body {
-    margin: 0;
-    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
-    background: linear-gradient(to bottom, #f5f0e6, #d46a6a);
-}
-
-@font-face {
-    font-family: 'Arturo';
-    src: url('../fonts/Arturo-Regular\ Trial.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.site-header {
-    padding: 26px 20px;
-    background: #003049;
-}
-
-.header-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px
-}
-
-.brand {
-    display: flex;
-    align-items: center;
-    gap: 12px
-}
-
-.brand-logo {
-    width: 200px;
-    height: auto;
-    display: block
-}
-
-.menu-items {
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    padding: 8px 24px;
-    background: #F7F3DA;
-    border-radius: 999px;
-    list-style: none;
-    margin: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.menu-items .menu-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: #0b2b33;
-    font-weight: 700;
-    font-size: 13px;
-    text-transform: uppercase;
-    font-family: 'Arturo', Arial, sans-serif;
-}
-
-.menu-items .menu-item a {
-    text-decoration: none;
-    color: inherit
-}
-
-.menu-items .pulse {
-    display: inline-flex;
-    align-items: center;
-}
-
-/*Elementos electrocardiograma*/
-.ecg-icon {
-    width: 32px;
-    height: auto;
-    display: block;
-}
-
-/*Elementos corazón*/
-.menu-corazon {
-    display: flex;
-    align-items: center
-}
-
-.heart-btn {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 56px;
-    height: 48px;
-    overflow: visible;
-}
-
-.heart-btn img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 85px;
-    height: 72px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.texto-corazon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #F7F3DA;
-    font-family: 'Arturo', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 7px;
-    z-index: 2;
-    pointer-events: none;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
-    white-space: nowrap;
-    letter-spacing: 0.3px;
-}
-
-
-/* Responsive adjustments */
-@media (max-width:1024px) {
-    .header-inner {
-        padding: 0.8rem 1.2rem;
-    }
-
-    .brand-logo {
-        width: 5.5rem;
-    }
-
-    .menu-items,
-    .main-nav .menu-items {
-        gap: 14px;
-        padding: 8px 18px;
-    }
-
-    .menu-items .menu-item {
-        font-size: 12px;
-    }
-}
-
-@media (max-width:768px) {
-    .header-inner {
-        padding: 0.8rem 1rem;
-    }
-
-    .brand-logo {
-        width: 4.5rem;
-    }
-}
-
-@media (max-width:640px) {
-    .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 0.8rem 1rem;
-    }
-
-    .menu-items,
-    .main-nav .menu-items {
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        flex-wrap: nowrap;
-        padding: 8px 12px;
-        gap: 12px;
-    }
-
-    .menu-items .menu-item {
-        font-size: 11px;
-        white-space: nowrap;
-    }
-}
 
 /* ===== Estilos del slider/otros simples (solo pequeños detalles) ===== */
 .dot {
@@ -204,19 +13,14 @@ body {
 /* slider mantiene las imágenes centradas verticalmente */
 #slider {
     height: 500px;
-    /* asegura que el slider tenga la altura esperada */
     align-items: center;
-    /* centra imágenes verticalmente */
 }
 
-/* las imágenes estarán posicionadas relative para permitir transform sin crear clipping inesperado */
 #slider img {
     position: relative;
     z-index: 10;
     will-change: transform, filter;
 }
-
-
 
 
 /* =========================
@@ -226,47 +30,12 @@ body {
 img { display: block; max-width: 100%; height: auto; }
 
 /* =========================
-   HEADER / NAV (DESKTOP)
-   ========================= */
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.brand-logo { width: 6.5rem; height: auto; }
-
-.main-nav .menu-items {
-  display: flex;
-  gap: 22px;
-  align-items: center;
-  margin: 0;
-  list-style: none;
-  padding: 8px 24px;
-  background: #F7F3DA;
-  border-radius: 999px;
-}
-
-/* make links touch-friendly */
-.main-nav .menu-item a {
-  padding: 0.45rem 0.6rem;
-  display: inline-block;
-  font-weight: 600;
-}
-
-/* =========================
    SLIDER
    ========================= */
 #slider-wrapper { width: 95%; max-width: 1300px; margin: 0 auto; position: relative; overflow: hidden; }
 
-/* Ensure slides fill container and adapt */
 #slider, #slider > * { height: 100%; }
 
-/* Each slide must take exactly the wrapper width so translateX(-n * 100%) moves by one slide */
 #slider > div {
     flex: 0 0 100%;
     box-sizing: border-box;
@@ -277,7 +46,6 @@ img { display: block; max-width: 100%; height: auto; }
     padding: 0 1rem;
 }
 
-/* Images inside the slider: keep cover on large screens, scale down on small */
 #slider img {
     width: 420px;
     height: 420px;
@@ -285,7 +53,6 @@ img { display: block; max-width: 100%; height: auto; }
     border-radius: 35px;
 }
 
-/* arrows sizing responsive */
 #btnPrev, #btnNext {
   background: transparent;
   border: none;
@@ -294,62 +61,26 @@ img { display: block; max-width: 100%; height: auto; }
   padding: 0.25rem;
 }
 
-/* DOTS stay centered */
 #dots { left: 50%; transform: translateX(-50%); }
 
-/* =========================
-   INFO PROYECTO
-   ========================= */
+
 #info-proyecto {
   box-sizing: border-box;
 }
 
-/* =========================
-   MINI PERFIL / MENÚ / LOGIN
-   ========================= */
+
+
 #miniPerfil { z-index: 1200 !important; }
 #miniMenu, #loginMini { z-index: 1300 !important; }
 
-/* On small screens make the miniProfile smaller */
 @media (max-width: 480px) {
   #miniPerfil { right: 0.5rem; bottom: 0.5rem; padding: 0.5rem 0.6rem; }
   #miniPerfil img { width: 2.6rem; height: 2.6rem; }
   #miniMenu, #loginMini { right: 0.5rem; bottom: 4.2rem; width: calc(100% - 1rem); max-width: 320px; }
 }
 
-/* =========================
-   RESPONSIVE BREAKPOINTS
-   ========================= */
 
-/* small phones -> stack brand + nav */
 @media (max-width: 640px) {
-  .header-inner { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
-  .main-nav { width: 100%; }
-  .main-nav .menu-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
-    width: 100%;
-  }
-  .menu-item a { width: 100%; padding: 0.6rem; border-radius: 8px; }
-  .brand-logo { width: 4.5rem; }
-  /* slider height small */
-  #slider-wrapper { height: 200px !important; }
-  #btnPrev, #btnNext { font-size: 26px !important; left: 8px; right: 8px; }
-  #info-proyecto { padding: 1rem !important; border-left-width: 8px !important; }
-}
-
-/* tablets */
-@media (min-width: 641px) and (max-width: 1024px) {
-  .header-inner { flex-direction: row; align-items: center; }
-  .main-nav .menu-items { flex-wrap: wrap; gap: .5rem; }
-  #slider-wrapper { height: 300px !important; }
-  #info-proyecto { padding: 1.25rem 1.5rem; border-left-width: 10px; }
-}
-
-/* Make slider and project card responsive on small screens */
-@media (max-width: 640px) {
-    /* stack slide content vertically */
     #slider-wrapper { height: auto !important; }
     #slider > div {
         flex-direction: column;
@@ -359,18 +90,15 @@ img { display: block; max-width: 100%; height: auto; }
         text-align: center;
     }
 
-    /* images shrink to container width */
     #slider img {
         width: 100%;
         max-width: 320px;
         height: auto;
     }
 
-    /* reduce heading / text sizes inside slides */
     #slider h1 { font-size: 28px !important; }
     #slider p { font-size: 15px !important; }
 
-    /* project info card: smaller padding and full width */
     #info-proyecto {
         padding: 1rem !important;
         margin: 1rem;
@@ -379,29 +107,13 @@ img { display: block; max-width: 100%; height: auto; }
     }
 }
 
-/* desktop large */
 @media (min-width: 1025px) {
-  .header-inner { padding: 1rem 2rem; }
   #slider-wrapper { height: 500px !important; }
   #info-proyecto { padding: 2.5rem; }
 }
 
-/* =========================
-   SMALL FIXES / OVERRIDES
-   ========================= */
 
-/* ensure footer links wrap well on small screens */
-footer .max-w-\[1300px\] { padding-left: 1rem; padding-right: 1rem; }
-
-/* force menu items visible with better spacing on small screens if Tailwind hides them */
-.menu-items { gap: .6rem; }
-
-/* Prevent weird large fonts from Tailwind on small screens */
-.menu-items a, .menu-item { font-size: 0.95rem !important; }
-
-/* Accessibility: larger tap targets on mobile */
-@media (max-width: 640px) {
-  .menu-item a { min-height: 44px; display: flex; align-items: center; }
+footer .max-w-\[1300px\] {
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
-
-
