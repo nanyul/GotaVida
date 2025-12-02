@@ -442,7 +442,7 @@ async function iniciarCentros() {
     iniciarMapa();
 
     procesarCampanaGuardada();
-    mostrarMarcadores(5);
+    mostrarMarcadores();
     
     // geolocalización
     if (navigator.geolocation) {
