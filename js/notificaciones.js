@@ -8,18 +8,16 @@ if (!cedulaActiva) {
     return;
 }
 
-let campanas = JSON.parse(localStorage.getItem("campanas")) || [];
+let campanas = [];
 
-if (campanas.length === 0) {
-    try {
-        const res = await fetch("json/campanas.json");
-        campanas = await res.json();
-        localStorage.setItem("campanas", JSON.stringify(campanas));
-    } catch (e) {
-        contenedor.innerHTML = "<p class='text-red-500'>Error cargando campañas.</p>";
-        console.error(e);
-        return;
-    }
+    if (campanas.length === 0) {
+        try {
+            const res = await fetch("json/campanas.json");
+            campanas = await res.json();
+        } catch (e) {
+            contenedor.innerHTML = "<p class='text-red-500'>Error cargando campañas.</p>";
+            return;
+        }
 }
 
 const listaUsuarios = JSON.parse(localStorage.getItem("listaUsuarios")) || [];

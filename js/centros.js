@@ -295,6 +295,54 @@ ${c.tipoSangre ? `
         );
 }
 
+function mostrarCampanaPorID(idCampana) {
+    const c = campanas.find(c => c.id == idCampana);
+    if (!c) {
+        mostrarToast("Campaña no encontrada", true);
+        // Si no existe la campaña, retiramos la clave para evitar loops futuros
+        localStorage.removeItem("campanaSeleccionada");
+        return;
+    }
+
+    // Centrar mapa
+    map.setView([c.lat, c.lng], 15);
+
+    // Crear marker temporal (y guardarlo para poder eliminarlo si hace falta)
+    const mk = L.marker([c.lat, c.lng]).addTo(map);
+
+    mk.bindPopup(`
+        <h3 class="font-bold mb-2" style="color:#69021E">${c.titulo}</h3>
+        <p><strong>Fecha:</strong> ${c.fecha}</p>
+        <p><strong>Lugar:</strong> ${c.lugar}</p>
+        ${c.tipoSangre ? `<p><strong>Tipo requerido:</strong> ${c.tipoSangre}</p>` : ""}
+        <p><strong>Contacto:</strong> ${c.contacto}</p>
+        <button class="btnInscribirMap" data-id="${c.id}"
+            style="margin-top:8px;padding:6px 10px;color:white;background:#AA0235;border-radius:8px">
+            Inscribirme
+        </button>
+    `).openPopup();
+
+    
+}
+
+
+function resaltarCampanaEnLista(idCampana) {
+    const card = document.querySelector(`.btnInscribirLista[data-id="${idCampana}"]`)?.closest(".camp-item");
+    if (!card) return;
+
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.style.border = "2px solid #AA0235";
+    card.style.boxShadow = "0 0 12px rgba(170,2,53,.4)";
+
+    setTimeout(() => {
+        card.style.border = "";
+        card.style.boxShadow = "";
+    }, 1800);
+
+    resaltarCampanaEnLista(idCampana);
+}
+
+
 function iconoTipo(tipo) {
     tipo = tipo.toLowerCase();
 
@@ -374,7 +422,6 @@ function inscribirse(idCampana) {
         mostrarUsuarioActivo();
 }
 
-
 //SE CARGA DE JSON
 async function cargarCampanas() {
     try {
@@ -388,13 +435,15 @@ async function cargarCampanas() {
 }
 
 
-
 //INICIO GENERAL
 async function iniciarCentros() {
     await cargarCampanas();
 
     iniciarMapa();
 
+    procesarCampanaGuardada();
+    mostrarMarcadores(5);
+    
     // geolocalización
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(pos => {
@@ -403,16 +452,16 @@ async function iniciarCentros() {
 
             map.setView([userLat, userLng], 14);
             userMarker = L.marker([userLat, userLng]).addTo(map).bindPopup("Estás aquí");
-
-
-            mostrarMarcadores(Number(document.getElementById("radioInput").value) || 5);
-
         }, () => {
-            mostrarMarcadores(5);
+            
             mostrarToast("No se pudo obtener tu ubicación", true);
+            mostrarMarcadores();
+            procesarCampanaGuardada();
         });
+       
     } else {
-        mostrarMarcadores(5);
+        mostrarMarcadores();
+        procesarCampanaGuardada();
         mostrarToast("Geolocalización no disponible", true);
     }
 }
@@ -487,7 +536,7 @@ function inscribirseEnCampana(campaniaId) {
     mostrarToast("¡Te has inscrito exitosamente! Revisa tu seguimiento.");
     latidoCorazon();
     
-    // Opcional: Redirigir a seguimiento después de 2 segundos
+    // Redirigir a seguimiento después de 2 segundos
     setTimeout(() => {
         if (confirm("¿Deseas ver tu historial de donaciones?")) {
             window.location.href = "seguimiento.html";
@@ -495,5 +544,19 @@ function inscribirseEnCampana(campaniaId) {
     }, 1500);
 }
 
+function procesarCampanaGuardada() {
+    const id = localStorage.getItem("campanaSeleccionada");
+    if (!id) return;
 
+    // SACAR campaña del array
+    const index = campanas.findIndex(c => c.id == id);
+    if (index > -1) {
+        const camp = campanas.splice(index, 1)[0];
+        // INSERTAR al inicio
+        campanas.unshift(camp);
+    }
+    mostrarCampanaPorID(Number(id));
 
+    // se borra SOLO cuando ya fue usada
+    localStorage.removeItem("campanaSeleccionada");
+}
